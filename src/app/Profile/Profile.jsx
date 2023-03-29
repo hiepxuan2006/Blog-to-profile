@@ -32,7 +32,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 about
               </Link>
@@ -45,7 +45,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 Experience
               </Link>
@@ -58,7 +58,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 Education
               </Link>
@@ -71,7 +71,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 Skills
               </Link>
@@ -84,7 +84,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 Projects
               </Link>
@@ -100,7 +100,7 @@ export const Profile = () => {
                 spy={true}
                 smooth={true}
                 duration={0}
-                offset={-100}
+                offset={-0}
               >
                 The End
               </Link>
@@ -152,12 +152,12 @@ export const Profile = () => {
                 <i class="fa-brands fa-github"></i> - Github :
               </strong>
               <a
-                href="https://github.com/hiepxuan1006"
+                href="https://github.com/hiepxuan06"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fst-italic"
               >
-                https://github.com/hiepxuan1006
+                https://github.com/hiepxuan06
               </a>
             </p>
           </div>
@@ -316,7 +316,7 @@ export const Profile = () => {
                 <span>
                   Building
                   <a
-                    href="https://hiepxuan1006.github.io/place-travel/"
+                    href="https://hiepxuan06.github.io/place-travel/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
