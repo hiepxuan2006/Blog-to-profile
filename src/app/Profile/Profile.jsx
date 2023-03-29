@@ -122,7 +122,7 @@ export const Profile = () => {
               <i class="fa fa-map"></i>
               <p>
                 Diễn lộc,diễn châu,nghệ an -
-                <span className="text-primary"> hiepxuan1006@gmail.com</span>
+                <span className="text-primary"> hiepxuan2006@gmail.com</span>
               </p>
             </div>
             <p className="lead">Welcome to visit my CV online!</p>
