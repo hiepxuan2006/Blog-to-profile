@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { useContext, useState } from "react"
+import { AuthenticatedRoutes } from "./components/AuthenticatedRoutes"
+import { Auth } from "./components/Auth/Auth"
+import { NotFound } from "./components/NotFound/NotFound"
+import { Toggle } from "./components/tonggle/Tonggle"
+import { DataContext } from "./Context/AppContext"
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+
+  const handleLogin = () => {
+    setIsAuthenticated(true)
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+  }
+
+  const { theme } = useContext(DataContext)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${theme}`}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Auth onLogin={handleLogin} />} />
+          <Route
+            path="/logout"
+            element={<Navigate to="/login" />}
+            onEnter={handleLogout}
+          />
+          <Route
+            path="/"
+            element={<AuthenticatedRoutes isAuthenticated={isAuthenticated} />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <Toggle />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,111 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
+:root {
+    --collapsed-size: 70px;
+    --offscreen-size: 280px;
+    $border-color: rgba(0, 0, 0, 0.0625);
+    --default-primary: #ff3c7e;
+    --boxShadow: rgb(204 204 204) 0px 0px 10px;
+    $default-danger : #ff3c7e;
+    $default-dark : #313435;
+    $default-grey : #565a5c;
+    $default-info : #0f9aee;
+    $default-success : #37c936;
+    $default-text-color : #303238;
+    $default-warning : #fc0;
+    $default-white : #fff;
+
+    $grey-100 : #f9fafb;
+    $grey-200 : #f2f3f5;
+    $grey-300 : #e6eaf0;
+    $grey-400 : #d3d9e3;
+    $grey-500 : #b9c2d0;
+    $grey-600 : #7c8695;
+    $grey-700 : #72777a;
+    $grey-800 : #565a5c;
+    $grey-900 : #313435;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1.6px;
+    font-family: 'Mulish', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+        scroll-behavior: smooth;
+    width: 100%;
+}
+
+
+a {
+	cursor: pointer;
+  transition: all 200ms linear;
+}
+a:hover {
+	text-decoration: none;
+}
+input {
+    font-size: 1.6rem !important;
+    outline: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ck-content {
+    min-height: 240px;
+}
+
+p {
+    margin: 0;
+}
+h1{
+    padding: 0;
+    margin: 0;
+}
+.height-40{
+    height: 40px;
+}
+
+a{
+    text-decoration: none;
+}
+// category
+.dropdown-content{
+    position: relative !important;
+    width: 100%;
+}
+.dropdown{
+    width: 100%;
+}
+.dropdown-trigger{
+width: 100%;
+}
+li , ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.darkTheme {
+    background-color: rgba(0, 12, 22, 0.927) !important;
+    color           : #fff !important;
+    box-shadow      : var(--boxShadow)
+}
+
+.lightTheme {
+    background-color: #fff !important;
+    color           : #3c3c3c;
+    box-shadow      : var(--boxShadow)
+}
+.col,.row{
+    height: 100% !important;
+}
