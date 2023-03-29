@@ -152,7 +152,7 @@ export const Profile = () => {
                 <i class="fa-brands fa-github"></i> - Github :
               </strong>
               <a
-                href="https://github.com/hiepxuan06"
+                href="https://github.com/hiepxuan2006"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fst-italic"
