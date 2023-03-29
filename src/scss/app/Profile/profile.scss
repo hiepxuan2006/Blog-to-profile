@@ -1,9 +1,31 @@
+
+
+@keyframes fadeIn {
+    0%{
+        right: 10px ;
+        opacity: 1 ;
+    }
+    
+    100%{
+        right: -400px ;
+    }
+}
+@keyframes popUp {
+    0%{
+        right: -400px;
+    }
+    
+    100%{
+        right: 10px ;
+    }
+}
 .Profile{
     width: 100%;
     min-height: 100vh;
     position: relative;
     padding-left: 20%;
     display: flex;
+    overflow: hidden;
 }
 .profile_left{
     height: 100%;
@@ -142,11 +164,76 @@ width: 100%;
     display: none;
 }
 
+.HelloToast{
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    right: 10px;
+    background-color: #38ada9;
+    color: #fff;
+    opacity: 1 !important;
+    z-index: 10;
+    animation: popUp 1s ease-in-out forwards;
+
+}
+.hidden_popup{
+        position: absolute;
+        padding: 10px;
+        top: 10px;
+        right: -400px ;
+        background-color: #38ada9;
+        color: #fff;
+        animation: fadeIn 2s ease-in-out ;
+}
+
 @media (max-width:740px) {
+    .HelloToast{
+        position: absolute;
+        padding: 10px;
+        top: 80px;
+        left: 0;
+        background-color: #38ada9;
+        color: #fff;
+        opacity: 1 !important;
+        z-index: 10;
+        animation: popUp2 2s ease-in-out forwards;
+    
+    }
+    .hidden_popup{
+            position: absolute;
+            padding: 10px;
+            top: 80px;
+            left: -400px ;
+            background-color: #38ada9;
+            color: #fff;
+            animation: fadeIn2 1s ease-in-out ;
+            opacity: 0;
+    }
+    @keyframes fadeIn2 {
+        0%{
+            right: 0 ;
+            opacity: 1 ;
+        }
+        
+        100%{
+            left: -400px ;
+            opacity: 0;
+        }
+    }
+    @keyframes popUp2 {
+        0%{
+            left: -400px;
+        }
+        
+        100%{
+            right: 0 ;
+        }
+    }
+    // ////////////////
     .Profile{
         padding: 0;
         width: 100vw !important;
-
+position: relative;
         display: flex;
         align-items: center;
     }

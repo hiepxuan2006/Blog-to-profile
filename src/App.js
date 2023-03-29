@@ -5,7 +5,7 @@ import { Auth } from "./components/Auth/Auth"
 import { NotFound } from "./components/NotFound/NotFound"
 import { Toggle } from "./components/tonggle/Tonggle"
 import { DataContext } from "./Context/AppContext"
-
+import { Notify } from "./helper/toast"
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true)
 
@@ -36,6 +36,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toggle />
+      <Notify />
     </div>
   )
 }
