@@ -157,7 +157,7 @@ export const Profile = () => {
                 rel="noopener noreferrer"
                 className="fst-italic"
               >
-                https://github.com/hiepxuan06
+                https://github.com/hiepxuan2006
               </a>
             </p>
           </div>
