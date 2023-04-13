@@ -2,12 +2,15 @@ import { createContext, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { authorizationRequest } from "~/slices/authSlice"
 import { io } from "socket.io-client"
-export const socket = io("ws://localhost:5005", {
-  reconnection: true,
-  reconnectionDelay: 1000,
-  reconnectionDelayMax: 5000,
-  reconnectionAttempts: Infinity,
-})
+export const socket = io(
+  "ws://api-chat-server-hiepxuan2006-dev.apps.sandbox-m3.1530.p1.openshiftapps.com",
+  {
+    reconnection: true,
+    reconnectionDelay: 1000,
+    reconnectionDelayMax: 5000,
+    reconnectionAttempts: Infinity,
+  }
+)
 export const DataContext = createContext()
 export const AppContext = ({ children }) => {
   const [theme, setTheme] = useState("darkTheme")
