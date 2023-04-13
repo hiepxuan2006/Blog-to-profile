@@ -13,7 +13,6 @@ export const Login = ({ btnSwitch = false }) => {
   const dispatch = useDispatch()
   const { setIsLogin, isLogin, loading } = useContext(DataContext)
   const { isLoggedIn } = useSelector((state) => state.auth)
-
   const formikRef = useRef(null)
   const [initialValues, setInitialValues] = useState({
     email: "",

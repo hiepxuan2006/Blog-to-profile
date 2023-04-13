@@ -143,7 +143,7 @@ export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
                   label="Nhập lại mật khẩu?"
                   type="password"
                 />
-                <button href="#" className="btn">
+                <button disabled={loading} href="#" className="btn">
                   submit
                 </button>
               </Form>
