@@ -1,0 +1,94 @@
+.Search{
+    width: 400px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1000;
+    border: 1px solid#ccc;
+    border-radius: 20px;
+    border-left: none;
+    // padding: 20px;
+}
+h3{
+    padding: 20px;
+}
+.form__control{
+    position: relative;
+    margin:0 10px ;
+    padding: 20px 0;
+    &::after{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: calc(100% + 20px);
+        border-bottom: 1px solid #ccc;
+        left: -10px;
+        bottom: -0;
+    }
+}
+.form-input{
+    padding: 10px;
+    padding-left: 28px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 20px #e0e0e0,
+            inset -5px -5px 20px #ffffff;
+}
+
+.icon-search{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+}
+.icon-show{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 14px;
+    cursor: pointer;
+}
+
+.icon-loading{
+    animation: rotate .3s linear infinite;
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+.hide-on {
+    animation: hideOn .3s linear;
+    left: 100%;
+}
+.hide-off{
+    animation: hideOff .5s linear;
+    left: -100%;
+    opacity: 0;
+    visibility: hidden;
+}
+@keyframes hideOn {
+    0%{
+        left: -100%;
+    } 
+    100%{
+        left: 100%;
+    }
+}
+@keyframes hideOff {
+    0%{
+        left: 100%;
+        opacity: 1;
+        visibility: visible;
+    } 
+    100%{
+        left: -100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+}

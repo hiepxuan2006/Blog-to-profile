@@ -6,36 +6,32 @@ import { NotFound } from "./components/NotFound/NotFound"
 import { Toggle } from "./components/tonggle/Tonggle"
 import { DataContext } from "./Context/AppContext"
 import { Notify } from "./helper/toast"
+import { Profile } from "./app/Profile/Profile"
+import { useSelector } from "react-redux"
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
-
-  const handleLogin = () => {
-    setIsAuthenticated(true)
-  }
-
-  const handleLogout = () => {
-    setIsAuthenticated(false)
-  }
+  const { isLogin } = useContext(DataContext)
+  const { isLoggedIn } = useSelector((state) => state.auth)
 
   const { theme } = useContext(DataContext)
   return (
     <div className={`App ${theme}`}>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Auth onLogin={handleLogin} />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/logout" element={<Navigate to="/auth" />} />
           <Route
-            path="/logout"
-            element={<Navigate to="/login" />}
-            onEnter={handleLogout}
+            path="/*"
+            element={
+              <AuthenticatedRoutes
+                isLoggedIn={isLoggedIn}
+                isAuthenticated={isLogin}
+              />
+            }
           />
-          <Route
-            path="/"
-            element={<AuthenticatedRoutes isAuthenticated={isAuthenticated} />}
-          />
+          <Route path="/profile" element={<Profile />} exact />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-      <Toggle />
       <Notify />
     </div>
   )

@@ -5,7 +5,7 @@
     --collapsed-size: 70px;
     --offscreen-size: 280px;
     $border-color: rgba(0, 0, 0, 0.0625);
-    --default-primary: #ff3c7e;
+    --primary-color: #ff3c3c;
     --boxShadow: rgb(204 204 204) 0px 0px 10px;
     $default-danger : #ff3c7e;
     $default-dark : #313435;
@@ -25,13 +25,17 @@
     $grey-700 : #72777a;
     $grey-800 : #565a5c;
     $grey-900 : #313435;
+    --buttonBg: linear-gradient(98.63deg, #fbd7a5 0%, #feccbe 100%);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 1.6rem;
+    font-size: 16px;
+    
+        -ms-overflow-style: none;
+    
 }
 
 html {
@@ -55,7 +59,7 @@ a:hover {
 	text-decoration: none;
 }
 input {
-    font-size: 1.6rem !important;
+    font-size: 16px !important;
     outline: none;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -90,21 +94,36 @@ a{
 .dropdown-trigger{
 width: 100%;
 }
+.invalid-tooltip{
+    background-color: rgb(255, 255, 255,0.6) !important;
+    font-style: italic !important;
+    font-size: 12px;
+    padding: 0 10px!important;
+    color: red !important;
+}
 li , ul{
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 .darkTheme {
-    background-color: rgba(0, 12, 22, 0.927) !important;
+    background-color: rgba(0, 0, 0, 0.927) !important;
     color           : #fff !important;
-    box-shadow      : var(--boxShadow)
+    box-shadow      : var(--boxShadow);
+    border-color: #fff;
+    a{
+        color: #fff;
+    }
 }
 
 .lightTheme {
     background-color: #fff !important;
     color           : #3c3c3c;
-    box-shadow      : var(--boxShadow)
+    box-shadow      : var(--boxShadow);
+    border-color: #d5d5d5   !important;
+    a{
+        color: #000;
+    }
 }
 .col,.row{
     height: 100% !important;

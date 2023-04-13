@@ -48,7 +48,7 @@ export const Profile = () => {
         <nav className="profile_left">
           <h1 className="ms-3 hidden_mobile">Cao Xuân Hiệp</h1>
           <div className="hidden_mobile" onClick={handleMobile}>
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
           </div>
           <div className="avatar">
             <img src={avatar} alt="" />
@@ -146,11 +146,11 @@ export const Profile = () => {
                 Cao Xuân <span className="text-primary">Hiệp</span>
               </h1>
               <div className="sub_heading ">
-                <i class="fa fa-address-card"></i>
+                <i className="fa fa-address-card"></i>
                 <p>Web developer</p>
               </div>
               <div className="sub_heading mb-4">
-                <i class="fa fa-map"></i>
+                <i className="fa fa-map"></i>
                 <p>
                   Diễn lộc,diễn châu,nghệ an -
                   <span className="text-primary"> hiepxuan2006@gmail.com</span>
@@ -165,14 +165,14 @@ export const Profile = () => {
               </p>
               <p className="lead">
                 <strong>
-                  <i class="fa-brands fa-node-js"></i> - Backend:
+                  <i className="fa-brands fa-node-js"></i> - Backend:
                 </strong>
                 I am experienced in <strong>Javascript, MongoDB...etc</strong>
                 on platform <strong> Node.Js</strong>
               </p>
               <p className="lead">
                 <strong>
-                  <i class="fa-brands fa-react"></i> - Front-End:
+                  <i className="fa-brands fa-react"></i> - Front-End:
                 </strong>
                 I am experienced in <strong>Javascript</strong> on{" "}
                 <strong>ReactJS</strong> Framework, using <strong>Redux</strong>
@@ -180,7 +180,7 @@ export const Profile = () => {
               </p>
               <p className="lead ">
                 <strong>
-                  <i class="fa-brands fa-github"></i> - Github :
+                  <i className="fa-brands fa-github"></i> - Github :
                 </strong>
                 <a
                   href="https://github.com/hiepxuan2006"
@@ -199,20 +199,20 @@ export const Profile = () => {
               <div className="resume-item mb-3">
                 <div className="resume_content">
                   <h3>
-                    <i class="fa-solid fa-building"></i> FOOBLA TECHNOLOGY
+                    <i className="fa-solid fa-building"></i> FOOBLA TECHNOLOGY
                     COMPANY LIMITED(FOOBLA CO., LTD)
                   </h3>
                   <div className="sub_heading">CTV WEB DEVELOPER FULLSTACK</div>
                   <div className="mt-3 mission">
                     <p>
-                      <i class="fa-solid fa-bookmark"></i>
+                      <i className="fa-solid fa-bookmark"></i>
                       <span>
                         Participate in the frontend development of the
                         backoffice merchize system using React.Js
                       </span>
                     </p>
                     <p>
-                      <i class="fa-solid fa-bookmark"></i>
+                      <i className="fa-solid fa-bookmark"></i>
                       <span>
                         Develop and maintain backend system backoffice merchize
                         using Node.Js
@@ -227,13 +227,13 @@ export const Profile = () => {
               <div className="resume-item">
                 <div className="resume_content">
                   <h3>
-                    <i class="fa-solid fa-building"></i> CHANNEL 28
+                    <i className="fa-solid fa-building"></i> CHANNEL 28
                     ENTERTAINMENT JOINT STOCK COMPANY
                   </h3>
                   <div className="sub_heading"> WEB FRONT_END DEVELOPER </div>
                   <div className="mt-3 mission">
                     <p>
-                      <i class="fa-solid fa-bookmark"></i>
+                      <i className="fa-solid fa-bookmark"></i>
                       <span>
                         Participate in building the front-end of the admin
                         website using React.Js
@@ -251,7 +251,7 @@ export const Profile = () => {
             <div className="my_auto">
               <h1 className="mb-4">Education</h1>
               <h3>
-                <i class="fa-solid fa-school me-3"></i>
+                <i className="fa-solid fa-school me-3"></i>
                 <a
                   href="https://actvn.edu.vn"
                   target="_blank"
@@ -270,14 +270,14 @@ export const Profile = () => {
               <h1 className="mb-4">Skills</h1>
               <div className="sub_heading">PROGRAMMING LANGUAGES & TOOLS</div>
               <div className="skill mb-5">
-                <i class="fa-brands fa-js"></i>
-                <i class="fa-brands fa-node-js"></i>
-                <i class="fa-brands fa-react"></i>
-                <i class="devicon-mongodb-plain"></i>
-                <i class="devicon-photoshop-plain"></i>
-                <i class="fa-brands fa-github"></i>
-                <i class="fa-brands fa-bootstrap"></i>
-                <i class="fa-brands fa-docker"></i>
+                <i className="fa-brands fa-js"></i>
+                <i className="fa-brands fa-node-js"></i>
+                <i className="fa-brands fa-react"></i>
+                <i className="devicon-mongodb-plain"></i>
+                <i className="devicon-photoshop-plain"></i>
+                <i className="fa-brands fa-github"></i>
+                <i className="fa-brands fa-bootstrap"></i>
+                <i className="fa-brands fa-docker"></i>
               </div>
               <div className="lead">
                 <em>
@@ -293,7 +293,7 @@ export const Profile = () => {
               <div className="sub_heading mb-4">My projects</div>
               <div>
                 <p className="lead">
-                  <i class="fa-solid fa-trophy me-3"></i>
+                  <i className="fa-solid fa-trophy me-3"></i>
                   <span>
                     Developer some frontend functionality using reactjs and api
                     using nodejs
@@ -307,7 +307,7 @@ export const Profile = () => {
                   </span>
                 </p>
                 <p className="lead">
-                  <i class="fa-solid fa-trophy me-3"></i>
+                  <i className="fa-solid fa-trophy me-3"></i>
                   <span>
                     Building
                     <a
@@ -321,7 +321,7 @@ export const Profile = () => {
                   </span>
                 </p>
                 <p className="lead">
-                  <i class="fa-solid fa-trophy me-3"></i>
+                  <i className="fa-solid fa-trophy me-3"></i>
                   <span>
                     Building
                     <a
@@ -343,7 +343,7 @@ export const Profile = () => {
                   </span>
                 </p>
                 <p className="lead">
-                  <i class="fa-solid fa-trophy me-3"></i>
+                  <i className="fa-solid fa-trophy me-3"></i>
                   <span>
                     Building
                     <a
@@ -357,7 +357,7 @@ export const Profile = () => {
                   </span>
                 </p>
                 <p className="lead">
-                  <i class="fa-solid fa-trophy me-3"></i>
+                  <i className="fa-solid fa-trophy me-3"></i>
                   <span>
                     Building
                     <a

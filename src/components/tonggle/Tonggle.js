@@ -12,14 +12,14 @@ export const Toggle = () => {
     toggleTheme()
   }, [checked])
   return (
-    <div class=" Toggle">
+    <div className=" Toggle">
       <input
         onChange={onChangeChecked}
         id="checkbox"
         name="checkbox"
         type="checkbox"
       />
-      <label class="label" for="checkbox"></label>
+      <label className="label" for="checkbox"></label>
     </div>
   )
 }

@@ -8,12 +8,16 @@ import "./scss/index.scss"
 import "bootstrap/dist/js/bootstrap.bundle.min"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import { AppContext } from "./Context/AppContext"
+import { Provider } from "react-redux"
+import store from "./app/store"
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <React.StrictMode>
-    <AppContext>
-      <App />
-    </AppContext>
+    <Provider store={store}>
+      <AppContext>
+        <App />
+      </AppContext>
+    </Provider>
   </React.StrictMode>
 )
 
