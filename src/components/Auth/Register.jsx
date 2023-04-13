@@ -7,6 +7,7 @@ import { register, uploadImage } from "~/services/api/accountService"
 import { toastAlert } from "~/helper/toast"
 import { useNavigate } from "react-router"
 import { LoadingProcess } from "~/helper/LoadingProcess"
+import { Loading } from "../loading/Loading"
 const img = require("~/assets/social1.png")
 export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
   const [loading, setLoading] = useState(false)
@@ -67,30 +68,35 @@ export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
     formData.append("image", image)
     formData.append("folder", "media")
     setLoading(true)
-    const { success: ready, data: url } = await uploadImage(formData)
-    if (!ready) {
+    try {
+      const { success: ready, data: url } = await uploadImage(formData)
+      if (!ready) {
+        setLoading(false)
+        toastAlert("error", "Tải ảnh lên bị lỗi! Thử lại!")
+        return
+      }
+      const { secure_url } = url
+      const { data, success, message } = await register({
+        ...value,
+        avatar: secure_url,
+      })
       setLoading(false)
-      toastAlert("error", "Tải ảnh lên bị lỗi! Thử lại!")
-      return
-    }
-    const { secure_url } = url
-    const { data, success, message } = await register({
-      ...value,
-      avatar: secure_url,
-    })
-    setLoading(false)
-    if (!success) {
-      toastAlert("error", message)
-      return
-    }
+      if (!success) {
+        toastAlert("error", message)
+        return
+      }
 
-    toastAlert("success", "Đăng ký thành công!")
-    resetForm()
-    setBtnSwitch(!btnSwitch)
+      toastAlert("success", "Đăng ký thành công!")
+      resetForm()
+      setBtnSwitch(!btnSwitch)
+    } catch (error) {
+      setLoading(false)
+      toastAlert("error", error.message || error.toString())
+    }
   }
   return (
     <div className="card-back">
-      {loading && <LoadingProcess />}
+      {loading && <Loading />}
       <div className="center-wrap">
         <Formik
           validationSchema={validation}

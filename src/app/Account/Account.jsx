@@ -1,18 +1,25 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useSelector } from "react-redux"
+import { DataContext } from "~/Context/AppContext"
 import { DocTitle } from "~/helper/DocTitle"
 
 export const Account = () => {
   const { user } = useSelector((state) => state.auth)
+  const { windowWidth } = useContext(DataContext)
+
   return (
     <div className="Account">
       <DocTitle title={`${user.name}`} />
       <header>
-        <div className="section">
+        <div className={`section ${windowWidth < 860 && "flex-column gap-4"}`}>
           <div className="account-avatar">
             <img src={user.avatar} alt="" />
           </div>
-          <div className="account-info">
+          <div
+            className={`account-info ${
+              windowWidth < 860 && "align-items-center justify-content-center"
+            }`}
+          >
             <div className="account-name">
               <p>{user.name}</p>
               <div className=" btn btn-secondary button">

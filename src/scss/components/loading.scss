@@ -1,66 +1,40 @@
 .LoadingPage{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgb(9, 9, 9,0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.ball {
-    position: relative;
-    bottom: 50px;
-    left: calc(100% - 20px);
-    width: 50px;
-    height: 50px;
-    background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.05);
+  
+  .spinner {
+    width: 3em;
+    height: 3em;
+    cursor: not-allowed;
     border-radius: 50%;
-    animation: ball-move8234 1.5s ease-in-out 1s infinite alternate;
+    border: 2px solid #444;
+    box-shadow: -10px -10px 10px #6359f8, 0px -10px 10px 0px #9c32e2, 10px -10px 10px #f36896, 10px 0 10px #ff0b0b, 10px 10px 10px 0px#ff5500, 0 10px 10px 0px #ff9500, -10px 10px 10px 0px #ffb700;
+    animation: rot55 0.7s linear infinite;
   }
   
-  .ball::after {
+  .spinnerin {
+    border: 2px solid #444;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
     position: absolute;
-    content: '';
-    top: 25px;
-    right: 5px;
-    width: 5px;
-    height: 5px;
-    background: #000;
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  .bar {
-    width: 200px;
-    height: 12.5px;
-    background: #FFDAAF;
-    border-radius: 30px;
-    transform: rotate(-15deg);
-    animation: up-down6123 1.5s ease-in-out 1s infinite alternate;
-  }
-  
-  @keyframes up-down6123 {
-    from {
-      transform: rotate(-15deg);
-    }
-  
+  @keyframes rot55 {
     to {
-      transform: rotate(15deg);
-    }
-  }
-  
-  @keyframes ball-move8234 {
-    from {
-      left: calc(100% - 40px);
       transform: rotate(360deg);
     }
-  
-    to {
-      left: calc(0% - 20px);
-      transform: rotate(0deg);
-    }
   }
+  
+}

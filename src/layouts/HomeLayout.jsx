@@ -93,11 +93,11 @@ export const HomeLayout = ({ children }) => {
               <li>
                 <div onClick={handleClick} className="ItemNav">
                   <div className="">
-                    <i class="fa-solid icon fa-magnifying-glass"></i>
+                    <i class="fa-solid icon fa-list"></i>
                   </div>
                   {!isSearch ? (
                     <p className={`${windowWidth < 1200 ? "d-none" : ""}`}>
-                      Tìm kiếm
+                      To do
                     </p>
                   ) : (
                     ""
@@ -111,7 +111,7 @@ export const HomeLayout = ({ children }) => {
                   </div>
                   {!isSearch ? (
                     <p className={`${windowWidth < 1200 ? "d-none" : ""}`}>
-                      Khám phá
+                      Danh bạ
                     </p>
                   ) : (
                     ""
@@ -147,11 +147,11 @@ export const HomeLayout = ({ children }) => {
                 </NavLink>
               </li>
             </ul>
-            <Search isSearch={isSearch} />
+            {/* <Search isSearch={isSearch} /> */}
             <div ref={wrapperRef} className="action-more ItemNav mt-5">
               <ul
                 className={`custom-theme ${
-                  !switchTheme ? "hidden" : "hideOn"
+                  !switchTheme ? "hidden" : "hideOnAction"
                 } ${theme}`}
               >
                 <li className="d-flex align-items-center gap-2 justify-content-between">

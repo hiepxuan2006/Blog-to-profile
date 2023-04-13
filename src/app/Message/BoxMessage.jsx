@@ -9,10 +9,11 @@ import { getAccount } from "~/services/api/accountService"
 import { getMessage, sendMessage } from "~/services/api/messageService"
 import { Message } from "./Message"
 import { Loading } from "~/components/loading/Loading"
+import { Spinner } from "reactstrap"
 const avatar = require("~/assets/social1.png")
 export const BoxMessage = () => {
   const [newMessage, setNewMessage] = useState("")
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState("")
   const [chatRoom, setChatRoom] = useState(null)
   const [onlineUsers, setOnlineUsers] = useState([])
   const [receiver, setReceiver] = useState("")
@@ -23,6 +24,7 @@ export const BoxMessage = () => {
   const [receivedMessage, setReceivedMessage] = useState(null)
   const [isFocused, setIsFocused] = useState(false)
   const [typing, setTyping] = useState(false)
+  const [loading, setLoading] = useState(false)
   const handleChange = (newMessage) => {
     setNewMessage(newMessage)
   }
@@ -56,9 +58,11 @@ export const BoxMessage = () => {
 
   useEffect(() => {
     const fetchMessage = async () => {
+      setLoading(true)
       const { data, success, message } = await getMessage({
         members: [user._id, account],
       })
+      setLoading(false)
       if (!success) throw new Error(message)
       setMessages(data.message)
       setChatRoom(data.chatRoom)
@@ -91,7 +95,11 @@ export const BoxMessage = () => {
 
   const handleSend = async (e) => {
     e.preventDefault()
-    if (!newMessage) return
+    setLoading(true)
+    if (!newMessage) {
+      setLoading(false)
+      return
+    }
     const message = {
       senderId: user._id,
       content: newMessage,
@@ -104,11 +112,15 @@ export const BoxMessage = () => {
       isTyping: false,
     })
     const { data, success, message: mess } = await sendMessage(message)
-    if (!success) throw new Error(mess)
+    if (!success) {
+      setLoading(false)
+      throw new Error(mess)
+    }
     setMessages([...messages, data])
 
     socket.emit("send-message", message)
 
+    setLoading(false)
     setNewMessage("")
   }
 
@@ -149,7 +161,7 @@ export const BoxMessage = () => {
             <div className="Info">
               <div className="Image">
                 {checkOnlineStatus(receiver) && <div className="OnLine"></div>}
-                <img src={avatar} alt="" />
+                <img src={receiver.avatar || avatar} alt="" />
               </div>
               <div className="d-flex flex-column justify-content-center">
                 <p>{receiver.name}</p>
@@ -166,10 +178,13 @@ export const BoxMessage = () => {
             </div>
           </div>
           <div className="Box-content">
+            {loading && <Loading />}
             <div className="BoxBody">
-              {messages.length === 0 ? (
+              {messages && messages.length === 0 ? (
                 <p>Cùng nhau trò chuyện nào!</p>
               ) : (
+                messages &&
+                messages.length &&
                 messages.map((item, key) => {
                   return (
                     <div
@@ -217,9 +232,15 @@ export const BoxMessage = () => {
               onChange={handleChange}
               onFocus={handleFocus}
             />
-            <div className="button " onClick={handleSend}>
-              Gửi
-            </div>
+            <button disabled={loading} className="button" onClick={handleSend}>
+              {loading ? (
+                <Spinner className="load" animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
+              ) : (
+                "Gửi"
+              )}
+            </button>
           </div>
         </div>
       </Message>

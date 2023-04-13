@@ -51,7 +51,7 @@ export const searchAccount = (data) => {
 }
 // /////
 
-const apiUpload = createAPIServices({ baseUrl, timeout: 10000 })
+const apiUpload = createAPIServices({ baseUrl, timeout: 1000000000000 })
 export const uploadImage = (data) => {
   return apiUpload.makeAuthRequest({
     url: "/upload",

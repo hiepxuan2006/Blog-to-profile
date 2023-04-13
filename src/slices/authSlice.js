@@ -13,10 +13,12 @@ export const loginActions = createAsyncThunk(
     try {
       const { data, success, message } = await loginAccount(params)
       if (!success) {
+        toastAlert("error", message)
         return thunkAPI.rejectWithValue()
       }
       setLocalData("access_token", data.access_token)
       setLocalData("user", data.user)
+      toastAlert("success", "Đăng nhập thành công")
       return { user: data.user, success, message }
     } catch (error) {
       const message = error.message || error.toString()

@@ -1,10 +1,11 @@
 .Account{
     width: 100%;
-    max-width: 935px;
+    width: min(100% - 40px , 935px);
     height: calc(100vh - 40px);
-    margin: 20px auto;
+    margin-inline:  auto;
+    padding-top: 20px;
     header{
-        height: 160px;
+        // height: 100%;
         margin-bottom: 30px;
         padding: 0 40px;
     }

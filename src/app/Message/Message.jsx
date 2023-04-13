@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from "react"
-import { async } from "react-input-emoji"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, NavLink } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
@@ -127,7 +126,7 @@ export const Message = ({ children }) => {
               </ul>
             </div>
           </div>
-          <ul className="ListChat mt-2">
+          <ul className="ListChat">
             {accounts.length &&
               accounts.map((account, key) => {
                 return (

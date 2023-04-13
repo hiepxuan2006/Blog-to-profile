@@ -8,32 +8,33 @@
     .Nav {
         max-height: 100vh;
         height: 100vh !important;
-        position: fixed;
+        // position: fixed;
+        position: relative;
         max-height: 100vh;
         left: 0;
         top: 0;
         bottom: 0;
         padding: 20px;
-        // overflow-y: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         position: relative;
-        -ms-overflow-style: none;
-        position: relative;
+        
         &::-webkit-scrollbar {
-           width: 0;
+            width: 0.5em;
+            height: 10px;
           }
-        //  & ::-moz-scrollbar {
-        //     display: none;
-           
-        //   }
-        &::after {
-            content: '';
-            position: absolute;
-            width: 1px;
-            border-left: 1px solid;
-            height: 100%;
-            right: 0;
-            top: 0;
+        &::-webkit-scrollbar-track{
+           background: #ddd;
         }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(255, 131, 131); /* Màu của thanh cuộn */
+            border-radius: 1em; /* Bo góc của thanh cuộn */
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background-color: #555; /* Màu của thanh cuộn khi di chuột qua */
+          }
+
+      
     }
 
     .Logo {
@@ -70,6 +71,7 @@
 
             .icon {
                 font-weight: 600;
+                color: var(--primary-color);
             }
         }
     }
@@ -104,10 +106,7 @@
         font-size: 1.6rem;
 
     }
-    .home-content{
-        max-height: 100vh;
-        overflow-y: scroll;
-    }
+    
     .action-more{
         align-self: flex-end;
         position: relative;
@@ -137,13 +136,13 @@
             }
         }
     }
-    .hideOn{
-        animation: hideOn .3s linear ;
+    .hideOnAction{
+        animation: hideOnAction .3s linear ;
         opacity: 1;
         visibility: visible;
 
     }
-    @keyframes hideOn {
+    @keyframes hideOnAction {
         0%{
             height: 0;
             opacity: 0;
@@ -209,6 +208,10 @@
             left: 30px;
         }
     }
+   .home-content{
+    height: min(100vh , 100vh);
+    overflow: hidden;
+   }
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -302,6 +305,7 @@
 
             .ListChat {
                 margin: 0 !important;
+                width: 100%;
             }
 
             .MyAccount {

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { FastField, Form, Formik } from "formik"
-import { useContext, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Navigate, useNavigate } from "react-router"
 import * as Yup from "yup"
@@ -9,9 +9,11 @@ import { LoadingProcess } from "~/helper/LoadingProcess"
 import { loginActions } from "../../slices/authSlice"
 import { InputField } from "../form/InputField"
 import { Loading } from "../loading/Loading"
+import { Spinner } from "reactstrap"
 export const Login = ({ btnSwitch = false }) => {
   const dispatch = useDispatch()
-  const { setIsLogin, isLogin, loading } = useContext(DataContext)
+  const { setIsLogin, isLogin } = useContext(DataContext)
+  const [loading, setLoading] = useState(false)
   const { isLoggedIn } = useSelector((state) => state.auth)
   const formikRef = useRef(null)
   const [initialValues, setInitialValues] = useState({
@@ -20,13 +22,13 @@ export const Login = ({ btnSwitch = false }) => {
   })
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   setInitialValues({
-  //     email: "",
-  //     password: "",
-  //   })
-  //   formikRef.current.resetForm()
-  // }, [btnSwitch])
+  useEffect(() => {
+    setInitialValues({
+      email: "",
+      password: "",
+    })
+    formikRef.current.resetForm()
+  }, [btnSwitch])
   const validation = Yup.object().shape({
     email: Yup.string()
       .email("Vui lòng nhập đúng định dạng email!")
@@ -42,15 +44,15 @@ export const Login = ({ btnSwitch = false }) => {
 
   const handleLogin = async (value = {}, resetForm) => {
     const { email, password } = value
-
+    setLoading(true)
     const payload = await dispatch(loginActions({ email, password }))
+    setLoading(false)
   }
   if (isLoggedIn) {
     return <Navigate to="/message" />
   }
   return (
     <div className="card-front">
-      {loading && <Loading />}
       <div className="center-wrap">
         <Formik
           validationSchema={validation}
@@ -83,8 +85,23 @@ export const Login = ({ btnSwitch = false }) => {
                   label="Nhập mật khẩu của bạn!"
                   type="password"
                 />
-                <button onSubmit="submit" href="#" className="btn mt-4">
-                  Đăng nhập
+                <button
+                  disabled={loading}
+                  onSubmit="submit"
+                  href="#"
+                  className="btn mt-4 text-error"
+                >
+                  {loading ? (
+                    <Spinner
+                      className="load text-success"
+                      animation="border"
+                      role="status"
+                    >
+                      <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                  ) : (
+                    "Đăng nhập"
+                  )}
                 </button>
                 <p className="mb-0 mt-4 text-center">
                   <a href="#0" className="link">
