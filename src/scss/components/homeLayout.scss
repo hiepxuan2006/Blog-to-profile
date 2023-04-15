@@ -215,8 +215,10 @@
     .search{
         position: sticky !important;
         top: 50px;
-        background-color: #e5e5e5 !important;
+        background-color: #fff !important;
         z-index: 900;
+        border: none;
+        box-shadow: none !important;
     }
     .action-more {
         display: none !important;
@@ -232,10 +234,23 @@
             left: 0;
             padding: 0 10px;
             right: 0;
+            bottom: 0;
             order: 1;
-            position: unset;
+            position: sticky;
             border-top: 1px solid #d5d5d5;
-
+            &::-webkit-scrollbar {
+                display: none !important;
+            }
+        
+            &::-webkit-scrollbar-track {
+                display: none !important;
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                display: none !important;
+            }
+        
+            
             &::after {
                 border: none;
                 display: none;
@@ -317,7 +332,7 @@
                 align-items: center;
                 position: sticky !important;
                 top: 0;
-                background-color: #d5d5d5 !important;
+                background-color: #fff !important;
             }
 
             .hide-on__mobile {
@@ -340,7 +355,6 @@
 
             .Heading {
                 height: 50px !important;
-                padding: 0 !important;
             }
 
             .react-emoji-picker--wrapper {

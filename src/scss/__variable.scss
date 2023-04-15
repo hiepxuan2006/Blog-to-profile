@@ -35,8 +35,8 @@
     -ms-overflow-style: none;
 
     &::-webkit-scrollbar {
-        width: 0.5em;
-        height: 0.3rem;
+        width: 0px;
+        height: 10px;
     }
 
     &::-webkit-scrollbar-track {
