@@ -56,7 +56,7 @@ export const HomeLayout = ({ children }) => {
     <div className="HomeLayout">
       <div className="">
         <div
-          className={`row m-0  ${
+          className={`row m-0 layout-content ${
             isSearch || windowWidth < 1200
               ? "justify-content-between"
               : "justify-content-end"

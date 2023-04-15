@@ -397,7 +397,7 @@ export const GomakuOnline = () => {
                 Hủy sẵn sàng
               </button>
             ) : (
-              <button className="btn btn-secondary" onClick={OnClickReady}>
+              <button className="btn btn-success" onClick={OnClickReady}>
                 Sẵn sàng
               </button>
             )}

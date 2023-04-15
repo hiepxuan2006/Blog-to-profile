@@ -439,12 +439,16 @@
 // //////
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 .Box-content{
-    height: calc(100vh - 186px) !important;
+    height: calc(100vh - 190px) !important;
+    margin-top: 60px;
 }
 .BoxSender{
     height: 60px !important;
     width: 100vw;
     width: 100%;
+    position: fixed !important;
+    bottom: 70px;
+    background-color: #fff;
 }
 .Heading{
     background-color: #fff;

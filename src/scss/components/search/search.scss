@@ -1,4 +1,4 @@
-.Search{
+.Search {
     width: 400px;
     height: 100%;
     position: absolute;
@@ -11,14 +11,17 @@
     border-left: none;
     // padding: 20px;
 }
-h3{
+
+h3 {
     padding: 20px;
 }
-.form__control{
+
+.form__control {
     position: relative;
-    margin:0 10px ;
+    margin: 0 10px;
     padding: 20px 0;
-    &::after{
+
+    &::after {
         content: '';
         position: absolute;
         height: 1px;
@@ -28,22 +31,24 @@ h3{
         bottom: -0;
     }
 }
-.form-input{
+
+.form-input {
     padding: 10px;
     padding-left: 28px;
     width: 100%;
     border-radius: 10px;
     box-shadow: inset 5px 5px 20px #e0e0e0,
-            inset -5px -5px 20px #ffffff;
+        inset -5px -5px 20px #ffffff;
 }
 
-.icon-search{
+.icon-search {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 10px;
 }
-.icon-show{
+
+.icon-show {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -51,44 +56,85 @@ h3{
     cursor: pointer;
 }
 
-.icon-loading{
+.icon-loading {
     animation: rotate .3s linear infinite;
 }
+
 @keyframes rotate {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(180deg);
     }
 }
+
 .hide-on {
     animation: hideOn .3s linear;
     left: 100%;
 }
-.hide-off{
+
+.hide-off {
     animation: hideOff .5s linear;
     left: -100%;
     opacity: 0;
     visibility: hidden;
 }
+
 @keyframes hideOn {
-    0%{
+    0% {
         left: -100%;
-    } 
-    100%{
+    }
+
+    100% {
         left: 100%;
     }
 }
+
 @keyframes hideOff {
-    0%{
+    0% {
         left: 100%;
         opacity: 1;
         visibility: visible;
-    } 
-    100%{
+    }
+
+    100% {
         left: -100%;
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .form__control {
+        padding: 0;
+        border: none;
+        margin: 0;
+        &::after {
+            border: none;
+        }
+    }
+
+    .search {
+        border: none;
+        margin-top: 70px;
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 900;
+    }
+
+    .MyAccount {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #ffffff;
+    }
+    .ListChat{
+        margin-top: 140px !important;
     }
 }

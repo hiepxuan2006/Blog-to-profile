@@ -46,7 +46,7 @@ export const GomakuHome = () => {
                   to={`/play-game/gomaku-online/room/${key + 1}`}
                   key={key}
                   id={`my-div-table-id-${key}`}
-                  className="col-lg-3 col-xs-6 col-sm-6 my-tables mt-5"
+                  className=" col-lg-3 col-xs-6 col-sm-6 my-tables mt-5"
                 >
                   <div className="small-box bg-red">
                     <div className="inner">
