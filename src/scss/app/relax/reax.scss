@@ -8,6 +8,8 @@
 
 }
 
+
+
 .table-chess {
     display: flex;
     gap: 10px;
@@ -212,5 +214,8 @@
             width: 100%;
             object-fit: cover;
         }
+    }
+    #main-list-room{
+        margin: 0;
     }
 }

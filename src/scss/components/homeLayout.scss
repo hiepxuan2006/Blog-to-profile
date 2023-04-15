@@ -206,12 +206,21 @@
         }
     }
    .home-content{
-    height: 100vh !important;
+    height: 100vh ;
+    width: 100vw;
+    overflow: hidden;
     overflow-y:scroll;
    }
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
+    .search{
+        position: sticky !important;
+        top: 50px;
+        z-index: 1000;
+        background-color: #e5e5e5;
+    }
     .action-more {
         display: none !important;
     }
@@ -307,8 +316,12 @@
 
             .MyAccount {
                 height: 50px;
+                position: sticky;
+                top: 0;
+                z-index: 1001;
                 padding: 0 10px;
                 align-items: center;
+                background-color: #d5d5d5 !important;
             }
 
             .hide-on__mobile {
