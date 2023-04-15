@@ -8,6 +8,9 @@ import { DataContext } from "./Context/AppContext"
 import { Notify } from "./helper/toast"
 import { Profile } from "./app/Profile/Profile"
 import { useSelector } from "react-redux"
+import { HomeLayout } from "./layouts/HomeLayout"
+import { Relax } from "./app/Gomoku/GomakuOnline"
+import { CaroOffline } from "./app/Gomoku/CaroOffline"
 function App() {
   const { isLogin } = useContext(DataContext)
   const { isLoggedIn } = useSelector((state) => state.auth)
@@ -27,6 +30,11 @@ function App() {
                 isAuthenticated={isLogin}
               />
             }
+          />
+          <Route
+            path="/play-game/gomaku-ofline"
+            element={<CaroOffline></CaroOffline>}
+            exact
           />
           <Route path="/profile" element={<Profile />} exact />
           <Route path="*" element={<NotFound />} />

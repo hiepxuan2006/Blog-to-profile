@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
-import { Search } from "~/components/Search/Search"
+import { Loading } from "~/components/loading/Loading"
 import { Toggle } from "~/components/tonggle/Tonggle"
 import { LogoutAccount } from "~/slices/authSlice"
 const avatar = require("~/assets/social1.png")
 export const HomeLayout = ({ children }) => {
-  const { socket, windowWidth, theme } = useContext(DataContext)
+  const { socket, windowWidth, theme, loading } = useContext(DataContext)
   const { user } = useSelector((state) => state.auth)
   const [isSearch, setIsSearch] = useState(false)
   const [more, setMore] = useState(false)
@@ -103,6 +103,20 @@ export const HomeLayout = ({ children }) => {
                     ""
                   )}
                 </div>
+              </li>
+              <li>
+                <NavLink to="/play-game" className="ItemNav">
+                  <div className="">
+                    <i class="fa-solid icon fa-gamepad"></i>
+                  </div>
+                  {!isSearch ? (
+                    <p className={`${windowWidth < 1200 ? "d-none" : ""}`}>
+                      Game
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </NavLink>
               </li>
               <li>
                 <NavLink to={"/explore"} className="ItemNav">
@@ -212,7 +226,9 @@ export const HomeLayout = ({ children }) => {
               )}
             </div>
           </nav>
-          <main className="col  col-10 home-content">{children}</main>
+          <main className="col  col-10 home-content">
+            {loading ? <Loading /> : children}
+          </main>
         </div>
       </div>
     </div>

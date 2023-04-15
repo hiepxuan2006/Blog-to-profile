@@ -2,21 +2,19 @@ import { createContext, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { authorizationRequest } from "~/slices/authSlice"
 import { io } from "socket.io-client"
-export const socket = io(
-  "https://api-chat-server-hiepxuan2006-dev.apps.sandbox-m3.1530.p1.openshiftapps.com",
-  {
-    reconnection: true,
-    reconnectionDelay: 1000,
-    reconnectionDelayMax: 5000,
-    reconnectionAttempts: Infinity,
-  }
-)
+import { URL } from "~/helper/url"
+import { async } from "react-input-emoji"
+export const socket = io(URL, {
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionDelayMax: 5000,
+  reconnectionAttempts: Infinity,
+})
 export const DataContext = createContext()
 export const AppContext = ({ children }) => {
-  const [theme, setTheme] = useState("darkTheme")
+  const [theme, setTheme] = useState("lightTheme")
   const [isLogin, setIsLogin] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const { user } = useSelector((state) => state.auth)
+  const { user, loading } = useSelector((state) => state.auth)
   const [onLine, setOnline] = useState([])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
@@ -36,11 +34,12 @@ export const AppContext = ({ children }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setLoading(true)
-    setTimeout(async () => {
+    ;(async () => {
       await dispatch(authorizationRequest())
-    }, 0)
-    setLoading(false)
+    })()
+    // setTimeout(async () => {
+
+    // }, 0)
   }, [])
   console.log("ds_online", onLine)
   const value = {
@@ -52,7 +51,6 @@ export const AppContext = ({ children }) => {
     isLogin,
     setIsLogin,
     loading,
-    setLoading,
     windowWidth,
   }
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>

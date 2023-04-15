@@ -72,6 +72,7 @@ const auth = createSlice({
     user: user || {},
     isLoggedIn: access_token ? true : false,
     error: null,
+    loading: false,
   },
   extraReducers: {
     [loginActions.fulfilled]: (state, action) => {
@@ -88,14 +89,17 @@ const auth = createSlice({
       state.isLoggedIn = true
       state.user = action.payload.user
       state.error = false
+      state.loading = false
     },
     [authorizationRequest.rejected]: (state, action) => {
       state.isLoggedIn = false
       state.user = {}
       state.error = true
+      state.loading = false
     },
     [authorizationRequest.pending]: (state, action) => {
       state.error = true
+      state.loading = true
     },
     [LogoutAccount.fulfilled]: (state, action) => {
       state.isLoggedIn = false

@@ -22,13 +22,13 @@ export const Login = ({ btnSwitch = false }) => {
   })
   const navigate = useNavigate()
 
-  useEffect(() => {
-    setInitialValues({
-      email: "",
-      password: "",
-    })
-    formikRef.current.resetForm()
-  }, [btnSwitch])
+  // useEffect(() => {
+  //   setInitialValues({
+  //     email: "",
+  //     password: "",
+  //   })
+  //   formikRef.current.resetForm()
+  // }, [btnSwitch])
   const validation = Yup.object().shape({
     email: Yup.string()
       .email("Vui lòng nhập đúng định dạng email!")

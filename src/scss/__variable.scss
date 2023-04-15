@@ -68,7 +68,9 @@ body {
     width: 100%;
 }
 
-
+.App{
+    position: relative;
+}
 a {
     cursor: pointer;
     transition: all 200ms linear;

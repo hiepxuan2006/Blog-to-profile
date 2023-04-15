@@ -7,10 +7,11 @@ export const Toggle = () => {
 
   const onChangeChecked = (e) => {
     setChecked(e.target.checked)
-  }
-  useEffect(() => {
     toggleTheme()
-  }, [checked])
+  }
+  // useEffect(() => {
+  //   toggleTheme()
+  // }, [checked])
   return (
     <div className=" Toggle">
       <input
