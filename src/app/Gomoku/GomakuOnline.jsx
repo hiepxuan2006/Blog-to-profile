@@ -4,6 +4,7 @@ import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
 import { toastAlert } from "~/helper/toast"
+import { Howl } from "howler"
 
 const xChess = require("../../assets/X-chess.png")
 const oChess = require("~/assets/O-chess.png")
@@ -21,6 +22,10 @@ export const GomakuOnline = () => {
   const [messages, setMessage] = useState([])
   const [winner, setWinner] = useState("")
   const [showMobile, setShowMobile] = useState(false)
+  const Sounds = new Howl({
+    src: ["/sound/score.wav"],
+  })
+
   const messRef = useRef(null)
   let { idRoomNumber } = useParams()
   let x = 16,
@@ -110,6 +115,7 @@ export const GomakuOnline = () => {
     })
     setReady(true)
     setWinner("")
+    Sounds.play()
   }
 
   socket.on("server-send-playing", (data) => {
@@ -364,6 +370,7 @@ export const GomakuOnline = () => {
 
   socket.on("server-send-message-game", (data) => {
     setMessage([...messages, data])
+    if (socket.id !== idPlayer) Sounds.play()
   })
   useEffect(() => {
     messages.current?.scrollIntoView({ behavior: "smooth" })
