@@ -72,7 +72,7 @@ export const AuthenticatedRoutes = ({ isAuthenticated, isLoggedIn }) => {
           exact
         />
         <Route
-          path="/relax/room/:idRoomNumber"
+          path="/play-game/gomaku-online/room/:idRoomNumber"
           element={
             // <HomeLayout>
             <GomakuOnline></GomakuOnline>

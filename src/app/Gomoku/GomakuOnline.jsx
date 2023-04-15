@@ -1,6 +1,7 @@
 import { Fragment, useContext, useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
+import { Link } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
 import { toastAlert } from "~/helper/toast"
 
@@ -19,10 +20,11 @@ export const GomakuOnline = () => {
   const [valueChat, setValueChat] = useState("")
   const [messages, setMessage] = useState([])
   const [winner, setWinner] = useState("")
+  const [showMobile, setShowMobile] = useState(false)
   const messRef = useRef(null)
   let { idRoomNumber } = useParams()
-  let x = 20,
-    y = 25
+  let x = 16,
+    y = 16
   let matrix = new Array(x)
   let checkLine = -1
   const { socket } = useContext(DataContext)
@@ -372,10 +374,89 @@ export const GomakuOnline = () => {
       handleSendMessage(event)
     }
   }
+  console.log("********", showMobile)
   return (
     <div className="Relax">
       <div className="table-chess">
+        <div className="d-none hide-mobile bar-mobile">
+          <Link
+            to={"/play-game/gomaku-online"}
+            class="fa-solid fa-chevron-left"
+          ></Link>
+          <div className="info-chess__action action-room d-none hide-mobile">
+            {isViewer ? (
+              <button disabled className="btn btn-secondary">
+                Xem
+              </button>
+            ) : ready ? (
+              <button
+                disabled={playing}
+                onClick={handleUnReady}
+                className="btn btn-secondary"
+              >
+                Hủy sẵn sàng
+              </button>
+            ) : (
+              <button className="btn btn-secondary" onClick={OnClickReady}>
+                Sẵn sàng
+              </button>
+            )}
+            <button className="btn btn-warning">Rời phòng</button>
+          </div>
+          <input
+            onChange={(e) => setShowMobile(e.target.checked)}
+            type="checkbox"
+            name=""
+            id="show-room"
+            hidden
+          />
+          <label htmlFor="show-room">
+            <i class="fa-regular fa-handshake"></i>
+          </label>
+        </div>
+        <div className="info-chess__member d-none hide-mobile">
+          {members.length > 0 &&
+            members.map((member, key) => {
+              return (
+                <Fragment key={key}>
+                  {member.player && (
+                    <div
+                      key={key}
+                      className={`member-item ${
+                        member.userId === user._id ? "member-me" : ""
+                      }`}
+                    >
+                      <p>Player {key + 1}</p>
+                      <p> {member.userName}</p>
+                    </div>
+                  )}
+                </Fragment>
+              )
+            })}
+        </div>
+
         <div className="chess">
+          <div className="hide-mobile">
+            {!isViewer && (
+              <div className="chess-action">
+                {playing && gameFinish && <p>Lượt đối thủ ...</p>}
+                {playing && gameFinish === false && <p>Lượt của bạn ...</p>}
+                {!playing && ready && player.length === 2 && (
+                  <p>Đang chờ đối thủ...</p>
+                )}
+                {!playing && !ready && player.length === 2 && (
+                  <p>Đã tìm thấy đối thủ, hãy sãn sàng...</p>
+                )}
+                {!playing && !ready && player.length < 2 && (
+                  <p>Đang tìm kiếm...</p>
+                )}
+                {!playing && ready && player.length < 2 && (
+                  <p>Đang tìm kiếm...</p>
+                )}
+              </div>
+            )}
+          </div>
+
           <div className="ban-co">
             {matrix.map((item, rowIndex) => (
               <div key={rowIndex} className="list-rows">
@@ -396,8 +477,12 @@ export const GomakuOnline = () => {
             )}
           </div>
         </div>
-        <div className="info-chess__room">
-          <div className="info-chess__action">
+        <div
+          className={`info-chess__room ${
+            showMobile ? "show-room" : "hidden-show"
+          }`}
+        >
+          <div className="hidden-room-mobile info-chess__action">
             {isViewer ? (
               <button disabled className="btn btn-warning">
                 Xem
@@ -417,26 +502,27 @@ export const GomakuOnline = () => {
             )}
             <button className="btn btn-warning">Rời phòng</button>
           </div>
-          {!isViewer && (
-            <div className="chess-action">
-              {playing && gameFinish && <p>Lượt đối thủ ...</p>}
-              {playing && gameFinish === false && <p>Lượt của bạn ...</p>}
-              {!playing && ready && player.length === 2 && (
-                <p>Đang chờ đối thủ...</p>
-              )}
-              {!playing && !ready && player.length === 2 && (
-                <p>Đã tìm thấy đối thủ, hãy sãn sàng...</p>
-              )}
-              {!playing && !ready && player.length < 2 && (
-                <p>Đang tìm kiếm...</p>
-              )}
-              {!playing && ready && player.length < 2 && (
-                <p>Đang tìm kiếm...</p>
-              )}
-            </div>
-          )}
-
-          <div className="info-chess__member">
+          <div className="hidden-room-mobile">
+            {!isViewer && (
+              <div className="chess-action">
+                {playing && gameFinish && <p>Lượt đối thủ ...</p>}
+                {playing && gameFinish === false && <p>Lượt của bạn ...</p>}
+                {!playing && ready && player.length === 2 && (
+                  <p>Đang chờ đối thủ...</p>
+                )}
+                {!playing && !ready && player.length === 2 && (
+                  <p>Đã tìm thấy đối thủ, hãy sãn sàng...</p>
+                )}
+                {!playing && !ready && player.length < 2 && (
+                  <p>Đang tìm kiếm...</p>
+                )}
+                {!playing && ready && player.length < 2 && (
+                  <p>Đang tìm kiếm...</p>
+                )}
+              </div>
+            )}
+          </div>
+          <div className="info-chess__member hidden-room-mobile">
             {members.length > 0 &&
               members.map((member, key) => {
                 return (

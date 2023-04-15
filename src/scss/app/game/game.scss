@@ -1,5 +1,5 @@
 .Game{
-    padding-top: 20px;
+    padding: 20px;
 }
 
 .item-game{
@@ -9,5 +9,13 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+    }
+}
+
+
+// ///////
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .Game{
+        width: 100vw;
     }
 }

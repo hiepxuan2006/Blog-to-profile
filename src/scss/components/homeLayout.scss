@@ -207,11 +207,18 @@
     }
    .home-content{
     height: 100vh;
+    overflow: hidden;
     overflow-y:scroll;
    }
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+   .HomeLayout{
+    height: 100% !important;
+   }
+   .home-content{
+    width: 100vw;
+   }
     .search{
         position: sticky !important;
         top: 50px;
@@ -238,6 +245,7 @@
             order: 1;
             position: sticky;
             border-top: 1px solid #d5d5d5;
+            background-color: #e5e5e5;
             &::-webkit-scrollbar {
                 display: none !important;
             }
@@ -286,7 +294,7 @@
             width: 100%;
             padding: 0;
             order: 0;
-            height: calc(100vh - 70px) !important;
+            min-height: calc(100vh - 70px) !important;
             overflow-y: scroll;
         }
         .ImageAvatar{

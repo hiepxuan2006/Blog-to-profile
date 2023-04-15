@@ -32,9 +32,9 @@ export const GomakuHome = () => {
   return (
     <div className="HomeRoom">
       <main id="main-list-room" role="main" className="  pt-3 px-4 row my-main">
-        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 col-md-12">
+        <div className="header-room-gomaku d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 col-md-12">
           <h1 className="h2 center-block">Danh sách các bàn</h1>
-          <button className="btn btn-success">
+          <button className="btn btn-secondary">
             <Link to="/play-game/gomaku-ofline ">Chơi offline</Link>
           </button>
         </div>
@@ -43,7 +43,7 @@ export const GomakuHome = () => {
             {mang.map((item, key) => {
               return (
                 <Link
-                  to={`/relax/room/${key + 1}`}
+                  to={`/play-game/gomaku-online/room/${key + 1}`}
                   key={key}
                   id={`my-div-table-id-${key}`}
                   className="col-lg-3 col-xs-6 col-sm-6 my-tables mt-5"

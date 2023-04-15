@@ -6,186 +6,272 @@
     gap: 10px;
     max-width: 100vw;
 
-}
-
-.table-chess {
-    display: flex;
-    gap: 10px;
-    border: 1px solid #ccc;
-    padding: 20px;
-}
-
-.ban-co {
-    background-color: #f0b060;
-    width: 675px;
-    height: 540px;
-    position: relative;
-}
-
-.winner {
-    font-size: 16px;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(255, 165, 216, 0.5);
-}
-
-.list-rows {
-    height: 5%;
-    width: 100%;
-    display: flex;
-    border: 1px solid #333;
-    border-bottom: 0;
-
-    &:last-child {
-        border-bottom: 1px solid #333;
-    }
-}
-
-.item-o_co {
-    border: 1px solid #333;
-    border-bottom: 0;
-    border-top: 0;
-    border-right: 0;
-    height: 100%;
-    width: 4%;
-    background-position: center;
-    background-size: cover;
-    cursor: pointer;
-
-    &:hover {
-        background-color: #ffa5d8 !important;
-    }
-
-    &:first-child {
-        border-left: 0;
-    }
-
-}
-
-.chess-action {
-    font-size: 12px;
-    color: var(--primary-color);
-}
-
-.info-chess__room {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 300px;
-    background-color: #9ce;
-    padding: 10px;
-
-    .info-chess__action {
+    .table-chess {
         display: flex;
         gap: 10px;
-        justify-content: center;
+        border: 1px solid #ccc;
+        padding: 20px;
     }
-
-
-    .info-chess__member {
+    
+    .ban-co {
+        background-color: #f0b060;
+        width: 675px;
+        height: 540px;
+        position: relative;
+    }
+    
+    .winner {
+        font-size: 16px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
         display: flex;
-        gap: 10px;
-        justify-content: space-between;
-    }
-
-    .member-item {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        border: 1px solid #000;
-
-        p {
-            font-size: 14px;
-            padding: 0 10px;
-
-            &:first-child {
-                background-color: #333;
-                color: #fff;
-            }
-
-            &:last-child {}
-        }
-
-    }
-
-    .member-me {
-
-        color: var(--primary-color);
-
-    }
-
-    .view-action {
-        display: flex;
-        justify-content: center;
         align-items: center;
-        width: 100%;
+        justify-content: center;
+        background-color: rgb(255, 165, 216, 0.5);
     }
-
-    .view-item {
+    
+    .list-rows {
+        height: 5%;
         width: 100%;
-        text-align: center;
-        background-color: #000;
-        color: #fff;
+        display: flex;
+        border: 1px solid #333;
+        border-bottom: 0;
+    
+        &:last-child {
+            border-bottom: 1px solid #333;
+        }
+    }
+    
+    .item-o_co {
+        border: 1px solid #333;
+        border-bottom: 0;
+        border-top: 0;
+        border-right: 0;
+        height: 100%;
+        width: 4%;
+        background-position: center;
+        background-size: cover;
         cursor: pointer;
+    
+        &:hover {
+            background-color: #ffa5d8 !important;
+        }
+    
+        &:first-child {
+            border-left: 0;
+        }
+    
     }
-    .view-item__active{
-        background-color: #ffa5d8 !important;
-        color: var(--primary-color) !important;
+    
+    .chess-action {
+        font-size: 12px;
+        color: var(--primary-color);
     }
-
-    .info-chess__chat {
+    
+    .info-chess__room {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        width: 100%;
-    }
-
-    .info-chat__body {
-        height: 200px;
-        overflow-y: scroll;
+        width: 300px;
+        background-color: #9ce;
         padding: 10px;
-        background-color: #fff;
-    }
-    .message{
-        display: flex;
-        gap: 4px;
-    }
-    .info-chat__send {
-        width: 100%;
-        display: flex;
-
-        input {
-            padding: 10px 0;
-            flex: 1;
+    
+        .info-chess__action {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+    
+    
+        .info-chess__member {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+    
+        .member-item {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #000;
+    
+            p {
+                font-size: 14px;
+                padding: 0 10px;
+    
+                &:first-child {
+                    background-color: #333;
+                    color: #fff;
+                }
+    
+                &:last-child {}
+            }
+    
+        }
+    
+        .member-me {
+    
+            color: var(--primary-color);
+    
+        }
+    
+        .view-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    
+        .view-item {
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+        .view-item__active{
+            background-color: #ffa5d8 !important;
+            color: var(--primary-color) !important;
+        }
+    
+        .info-chess__chat {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+    
+        .info-chat__body {
+            height: 200px;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .message{
+            display: flex;
+            gap: 4px;
+        }
+        .info-chat__send {
+            width: 100%;
+            display: flex;
+    
+            input {
+                padding: 10px 0;
+                flex: 1;
+            }
+        }
+        .list_members{
+            background-color: #fff;
+            padding: 10px;
+            min-height: 200px;
         }
     }
-    .list_members{
-        background-color: #fff;
+    .back{
+        position: absolute;
+        top: 10px;
+        left: 10px;
         padding: 10px;
-        min-height: 200px;
+        background-color: #9ce;
+    }
+    .restart-game{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
-.back{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    background-color: #9ce;
-}
-.restart-game{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.Relax-offline{
+    .table-chess {
+        display: flex;
+        gap: 10px;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+    
+    .ban-co {
+        background-color: #f0b060;
+        width: 675px;
+        height: 675px;
+        position: relative;
+    }
+    .list-rows{
+        width: 100%;
+    }
+    .winner {
+        font-size: 16px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(255, 165, 216, 0.5);
+    }
+    
+    .list-rows {
+        height: calc(100% / 16);
+        width: 100%;
+        display: flex;
+        border: 1px solid #333;
+        border-bottom: 0;
+    
+        &:last-child {
+            border-bottom: 1px solid #333;
+        }
+    }
+    
+    .item-o_co {
+        border: 1px solid #333;
+        border-bottom: 0;
+        border-top: 0;
+        border-right: 0;
+        height: 100%;
+        width: calc(100% / 16);
+        background-position: center;
+        background-size: cover;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: #ffa5d8 !important;
+        }
+    
+        &:first-child {
+            border-left: 0;
+        }
+    
+    }
+    
+    .chess-action {
+        font-size: 12px;
+        color: var(--primary-color);
+    }
+    
+    
+    .back{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+        background-color: #9ce;
+    }
+    .restart-game{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .HomeRoom {
@@ -232,7 +318,7 @@
 .Relax-offline{
     .ban-co{
         width: 100vw;
-        height: calc(100vw / 25 * 20);
+        height: 100vw;
         padding: 10px;
     }
     .back{
@@ -242,6 +328,147 @@
         left: 0;
         width: 100%;
 
+    }
+}
+.Relax{
+    padding: 10px;
+    .table-chess {
+        flex-direction: column;
+        padding: 0;
+        gap: 0;
+        border: none;
+    }
+    .chess{
+        width: 100vw;
+        height: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+    .ban-co{
+        width: 90vw;
+        height: calc(90vw);
+    }
+    .list-rows{
+        width: 100%;
+        height: calc(100% / 16);
+    }
+    .item-o_co{
+        width: calc(100% / 16);
+    }
+    .info-chess__room{
+        position: absolute;
+        top: 60px;
+        right: 0;
+
+    }
+    .info-chess__member {
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .show-room{
+        top: 60px;
+        visibility: visible;
+        opacity: 1;
+        animation: show-room .3s linear;
+    }
+    @keyframes show-room {
+        0%{
+            visibility: hidden;
+            top: -100%;
+            opacity: 0;
+        }
+        100%{
+            visibility: visible;
+            top: 60px;
+            opacity: 1;
+        }
+    }
+    .hidden-show{
+        top: -100%;
+        animation: hidden-room .3s linear;
+    }
+    @keyframes hidden-room {
+        0%{
+            visibility: visible;
+            top: 60px;
+            opacity: 1;
+        }
+        100%{
+            visibility: hidden;
+            top: -100%;
+            opacity: 0;
+        }
+    }
+
+    .info-chess__member {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        
+    }
+
+    .member-item {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #000;
+
+        p {
+            font-size: 14px;
+            padding: 0 10px;
+
+            &:first-child {
+                background-color: #333;
+                color: #fff;
+            }
+
+            &:last-child {}
+        }
+
+    }
+
+    .action-room{
+        gap: 4px;
+        button{
+            width: 110px;
+            height: 30px;
+            font-size: 14px;
+        }
+    }
+    .hide-mobile{
+        display: flex !important;  
+    }
+    .hidden-room-mobile{
+        display: none !important;
+    }
+    .bar-mobile{
+        position: fixed;
+        top: 0;
+        height: 60px;
+        border-bottom: 1px solid #ccc;
+        left: 0;
+        right: 0;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        i{
+            font-size: 30px;
+
+        }
+    }
+}
+.header-room-gomaku{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    button{
+        color: #fff;
     }
 }
 

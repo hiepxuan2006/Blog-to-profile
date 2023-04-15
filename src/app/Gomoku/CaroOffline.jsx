@@ -12,8 +12,8 @@ export const CaroOffline = () => {
   let [gameFinish, setGameFinish] = useState(false)
   let { idRoomNumber } = useParams()
   console.log(idRoomNumber)
-  let x = 20,
-    y = 25
+  let x = 16,
+    y = 16
   let checkLine = -1
   const { socket } = useContext(DataContext)
   const { user } = useSelector((state) => state.auth)
