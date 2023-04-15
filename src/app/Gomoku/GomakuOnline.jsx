@@ -374,7 +374,9 @@ export const GomakuOnline = () => {
       handleSendMessage(event)
     }
   }
-  console.log("********", showMobile)
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
   return (
     <div className="Relax">
       <div className="table-chess">
@@ -572,6 +574,7 @@ export const GomakuOnline = () => {
               <div className="info-chat__send">
                 <input
                   type="text"
+                  onFocus={() => scrollToTop()}
                   onKeyDown={handleKeyPress}
                   value={valueChat}
                   onChange={(e) => setValueChat(e.target.value)}
