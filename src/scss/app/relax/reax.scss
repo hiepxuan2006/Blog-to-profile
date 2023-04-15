@@ -1,5 +1,5 @@
 .Relax {
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,7 +16,7 @@
     .ban-co {
         background-color: #f0b060;
         width: 675px;
-        height: 540px;
+        height: 675px;
         position: relative;
     }
     
@@ -34,7 +34,7 @@
     }
     
     .list-rows {
-        height: 5%;
+        height: calc(100% / 16 );
         width: 100%;
         display: flex;
         border: 1px solid #333;
@@ -51,7 +51,7 @@
         border-top: 0;
         border-right: 0;
         height: 100%;
-        width: 4%;
+        width: calc(100% / 16);
         background-position: center;
         background-size: cover;
         cursor: pointer;
