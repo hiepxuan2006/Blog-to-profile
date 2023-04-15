@@ -4,7 +4,7 @@ import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
 import { toastAlert } from "~/helper/toast"
-import { Howl } from "howler"
+import { Howl, Howler } from "howler"
 
 const xChess = require("../../assets/X-chess.png")
 const oChess = require("~/assets/O-chess.png")
@@ -293,6 +293,7 @@ export const GomakuOnline = () => {
       socket.on("server-send-client-win", (data) => {
         setWinner(data.winner.userName)
       })
+      Sounds.play()
     }
   }
 
@@ -342,6 +343,15 @@ export const GomakuOnline = () => {
     findPlayerWin()
     setGameFinish(!gameFinish)
     setWait(false)
+    if (flag === true) {
+      if (xFlag === false) {
+        Sounds.play()
+      }
+    } else if (flag === false) {
+      if (xFlag === true) {
+        Sounds.play()
+      }
+    }
   })
 
   const handleUnReady = () => {

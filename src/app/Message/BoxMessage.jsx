@@ -10,6 +10,7 @@ import { getMessage, sendMessage } from "~/services/api/messageService"
 import { Message } from "./Message"
 import { Loading } from "~/components/loading/Loading"
 import { Spinner } from "reactstrap"
+import { Howl } from "howler"
 const avatar = require("~/assets/social1.png")
 export const BoxMessage = () => {
   const [newMessage, setNewMessage] = useState("")
@@ -25,6 +26,10 @@ export const BoxMessage = () => {
   const [isFocused, setIsFocused] = useState(false)
   const [typing, setTyping] = useState(false)
   const [loading, setLoading] = useState(false)
+  const Sounds = new Howl({
+    src: ["/sound/score.wav"],
+  })
+
   const handleChange = (newMessage) => {
     setNewMessage(newMessage)
   }
@@ -135,10 +140,15 @@ export const BoxMessage = () => {
 
   socket.on("recieve-message", (data) => {
     const { chatId } = data
-    if (chatId === chatRoom) setReceivedMessage(data)
+    if (chatId === chatRoom) {
+      setReceivedMessage(data)
+      Sounds.play()
+    }
   })
   useEffect(() => {
-    if (receivedMessage) setMessages([...messages, receivedMessage])
+    if (receivedMessage) {
+      setMessages([...messages, receivedMessage])
+    }
   }, [receivedMessage])
 
   const checkOnlineStatus = (account) => {
