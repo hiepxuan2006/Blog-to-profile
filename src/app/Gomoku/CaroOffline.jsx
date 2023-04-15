@@ -217,7 +217,7 @@ export const CaroOffline = () => {
   }
 
   return (
-    <div className="Relax">
+    <div className="Relax-offline">
       <Link className="back" to="/play-game/gomaku-online">
         Trở về
       </Link>
