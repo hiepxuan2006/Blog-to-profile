@@ -374,12 +374,13 @@ export const GomakuOnline = () => {
       handleSendMessage(event)
     }
   }
-  const scrollToTop = () => {
-    window.scrollTo(0, 0)
+  const scroll = useRef(null)
+  const scrollTop = () => {
+    scroll.current.scrollIntoView({ behavior: "smooth" })
   }
   return (
     <div className="Relax">
-      <div className="table-chess">
+      <div className="table-chess" ref={scroll}>
         <div className="d-none hide-mobile bar-mobile">
           <Link
             to={"/play-game/gomaku-online"}
@@ -574,7 +575,8 @@ export const GomakuOnline = () => {
               <div className="info-chat__send">
                 <input
                   type="text"
-                  onFocus={() => scrollToTop()}
+                  onFocus={() => scrollTop()}
+                  onBlur={() => scrollTop()}
                   onKeyDown={handleKeyPress}
                   value={valueChat}
                   onChange={(e) => setValueChat(e.target.value)}

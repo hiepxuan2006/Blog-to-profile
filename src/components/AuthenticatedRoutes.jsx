@@ -11,8 +11,8 @@ import { HomeLayout } from "~/layouts/HomeLayout"
 import { Game } from "~/app/Game/Game"
 
 const PrivateRoute = ({ isAuthenticated, isLoggedIn }) => {
-  return <>{isLoggedIn ? <Outlet /> : <Navigate to="/auth" />}</>
-  // return <>{isLoggedIn ? <Outlet /> : <Outlet />}</>
+  // return <>{isLoggedIn ? <Outlet /> : <Navigate to="/auth" />}</>
+  return <>{isLoggedIn ? <Outlet /> : <Outlet />}</>
 }
 
 export const AuthenticatedRoutes = ({ isAuthenticated, isLoggedIn }) => {

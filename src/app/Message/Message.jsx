@@ -24,6 +24,15 @@ export const Message = ({ children }) => {
 
   const access_token = getAccessToken()
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0)
+  }
+
+  // Sử dụng trong component của bạn
+  useEffect(() => {
+    scrollToTop()
+  }, [])
+
   useEffect(() => {
     dispatch(getAccounts())
   }, [dispatch])
