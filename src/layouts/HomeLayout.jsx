@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useContext, useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
@@ -98,6 +99,7 @@ export const HomeLayout = ({ children }) => {
 
                   <a
                     target="_blank"
+                    href="/profile"
                     className={`${windowWidth < 1200 ? "d-none" : ""}`}
                   >
                     My CV
