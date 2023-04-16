@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
+import { Loading } from "~/components/loading/Loading"
 import { confirmDialog } from "~/helper/alertConfirm"
 import { toastAlert } from "~/helper/toast"
 
@@ -120,6 +121,7 @@ export const GomakuOnline = () => {
     })
     setReady(true)
     setWinner("")
+    reStartGame()
     Sounds.play()
   }
 
@@ -148,7 +150,7 @@ export const GomakuOnline = () => {
     try {
       //check ngang;
       while (dem < 5) {
-        if (matrix[itemp][jtemp] == c) {
+        if (matrix[itemp][jtemp] === c) {
           dem++
           jtemp++
         } else {
@@ -167,7 +169,7 @@ export const GomakuOnline = () => {
       itemp = i
       jtemp = j
       while (dem < 5) {
-        if (matrix[itemp][jtemp] == c) {
+        if (matrix[itemp][jtemp] === c) {
           dem++
           itemp++
         } else {
@@ -186,7 +188,7 @@ export const GomakuOnline = () => {
       itemp = i
       jtemp = j
       while (dem < 5) {
-        if (matrix[itemp][jtemp] == c) {
+        if (matrix[itemp][jtemp] === c) {
           dem++
           itemp++
           jtemp++
@@ -206,7 +208,7 @@ export const GomakuOnline = () => {
       itemp = i
       jtemp = j
       while (dem < 5) {
-        if (matrix[itemp][jtemp] == c) {
+        if (matrix[itemp][jtemp] === c) {
           dem++
           itemp++
           jtemp--
@@ -225,7 +227,7 @@ export const GomakuOnline = () => {
 
   const fillColorLineWin = (cas, i, j) => {
     let painNum = 5
-    if (cas == 0) {
+    if (cas === 0) {
       while (painNum > 0) {
         const newItem = document.getElementById(`post-${i}-${j}`)
         newItem.style.backgroundColor = "red"
@@ -234,7 +236,7 @@ export const GomakuOnline = () => {
         j++
         painNum--
       }
-    } else if (cas == 1) {
+    } else if (cas === 1) {
       //duong doc
       while (painNum > 0) {
         const newItem = document.getElementById(`post-${i}-${j}`)
@@ -242,7 +244,7 @@ export const GomakuOnline = () => {
         i++
         painNum--
       }
-    } else if (cas == 2) {
+    } else if (cas === 2) {
       while (painNum > 0) {
         const newItem = document.getElementById(`post-${i}-${j}`)
         newItem.style.backgroundColor = "red"
@@ -288,16 +290,10 @@ export const GomakuOnline = () => {
         if (xFlag) {
           socket.emit("client-send-winner", { idRoomNumber: idRoomNumber - 1 })
         }
-        if (player[0].userName === user.name) {
-          SoundWinner.play()
-        }
       }
       if (playerWin === 0) {
         if (xFlag === false) {
           socket.emit("client-send-winner", { idRoomNumber: idRoomNumber - 1 })
-        }
-        if (player[1].userName === user.name) {
-          SoundLoss.play()
         }
       }
       socket.on("server-send-client-win", (data) => {
@@ -305,6 +301,15 @@ export const GomakuOnline = () => {
       })
     }
   }
+
+  useEffect(() => {
+    if (winner && winner === user.name) {
+      SoundWinner.play()
+    }
+    if (winner && winner !== user.name) {
+      SoundLoss.play()
+    }
+  }, [winner])
 
   const reStartGame = () => {
     for (let i = 0; i < x; i++) {
@@ -335,7 +340,6 @@ export const GomakuOnline = () => {
       setWait(true)
     }
   }
-  console.log(stepPlay)
   socket.on("server-send-data-location-all", async (data) => {
     const { rowIndex, colIndex, xFlag: flag, idRoomNumber } = data
     const newItem = document.getElementById(`post-${rowIndex}-${colIndex}`)
@@ -349,17 +353,17 @@ export const GomakuOnline = () => {
 
       matrix[rowIndex][colIndex] = 0
     }
-    if (flag === true) {
+
+    findPlayerWin()
+    if (flag === true && !winner) {
       if (xFlag === false) {
         Sounds.play()
       }
-    } else if (flag === false) {
+    } else if (flag === false && !winner) {
       if (xFlag === true) {
         Sounds.play()
       }
     }
-    findPlayerWin()
-
     setGameFinish(!gameFinish)
     setWait(false)
   })
@@ -367,7 +371,6 @@ export const GomakuOnline = () => {
   const handleUnReady = () => {
     socket.emit("client-reload-ready", idRoomNumber - 1)
     setReady(false)
-    SoundWinner.play()
   }
 
   const handleSendMessage = () => {
