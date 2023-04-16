@@ -59,7 +59,7 @@
     .info_list{
         width: 100%;
         .active{
-            color: var(--default-primary);
+            color: var(--primary-color) !important;
         }
         li{
             font-weight: 600;
