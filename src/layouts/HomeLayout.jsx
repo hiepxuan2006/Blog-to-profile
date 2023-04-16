@@ -76,7 +76,7 @@ export const HomeLayout = ({ children }) => {
               ></i>
             </div>
             <ul className="NavLink">
-              <li>
+              {/* <li>
                 <NavLink to={"/home"} className="ItemNav">
                   <div className="">
                     <i className="icon fa-solid fa-house"></i>
@@ -89,8 +89,22 @@ export const HomeLayout = ({ children }) => {
                     ""
                   )}
                 </NavLink>
-              </li>
+              </li> */}
               <li>
+                <div className="ItemNav">
+                  <div className="">
+                    <i className="icon fa-solid fa-house"></i>
+                  </div>
+
+                  <a
+                    target="_blank"
+                    className={`${windowWidth < 1200 ? "d-none" : ""}`}
+                  >
+                    My CV
+                  </a>
+                </div>
+              </li>
+              {/* <li>
                 <div onClick={handleClick} className="ItemNav">
                   <div className="">
                     <i class="fa-solid icon fa-list"></i>
@@ -103,7 +117,7 @@ export const HomeLayout = ({ children }) => {
                     ""
                   )}
                 </div>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/play-game" className="ItemNav">
                   <div className="">
@@ -118,7 +132,7 @@ export const HomeLayout = ({ children }) => {
                   )}
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to={"/explore"} className="ItemNav">
                   <div className="">
                     <i class="fa-solid icon fa-compass"></i>
@@ -131,7 +145,7 @@ export const HomeLayout = ({ children }) => {
                     ""
                   )}
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to={"/message"} className="ItemNav">
                   <div className="">
@@ -161,7 +175,6 @@ export const HomeLayout = ({ children }) => {
                 </NavLink>
               </li>
             </ul>
-            {/* <Search isSearch={isSearch} /> */}
             <div ref={wrapperRef} className="action-more ItemNav mt-5">
               <ul
                 className={`custom-theme ${
