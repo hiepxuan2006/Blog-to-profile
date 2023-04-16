@@ -312,7 +312,7 @@ export const Profile = () => {
                   <span>
                     Building
                     <a
-                      href="https://hx-cellphone.netlify.app/"
+                      href="https://hiepxuan-profile.netlify.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
