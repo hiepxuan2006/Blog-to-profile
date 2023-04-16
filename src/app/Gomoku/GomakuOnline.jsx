@@ -23,6 +23,7 @@ export const GomakuOnline = () => {
   const [messages, setMessage] = useState([])
   const [winner, setWinner] = useState("")
   const [showMobile, setShowMobile] = useState(false)
+  const [stepPlay, setStepPlay] = useState([])
   const Sounds = new Howl({
     src: ["/sound/score.wav"],
   })
@@ -129,8 +130,7 @@ export const GomakuOnline = () => {
 
   const checkItemClicked = (i, j) => {
     if (
-      matrix[i][j] !== 1 &&
-      matrix[i][j] !== 0 &&
+      !stepPlay.includes(`${i - j}`) &&
       gameFinish === false &&
       wait === false &&
       playing === true
@@ -340,6 +340,7 @@ export const GomakuOnline = () => {
   socket.on("server-send-data-location-all", async (data) => {
     const { rowIndex, colIndex, xFlag: flag, idRoomNumber } = data
     const newItem = document.getElementById(`post-${rowIndex}-${colIndex}`)
+    setStepPlay([...stepPlay, `${rowIndex - colIndex}`])
     if (flag === true) {
       newItem.style.backgroundImage = `url(${xChess})`
 
