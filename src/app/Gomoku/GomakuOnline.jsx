@@ -318,29 +318,28 @@ export const GomakuOnline = () => {
     matrix.slice(0, x)
     setWinner("")
     checkLine = -1
+    setStepPlay([])
     setGameFinish(!gameFinish)
     setxFlag(!true)
   }
 
   const handleClick = (rowIndex, colIndex) => {
     if (checkItemClicked(rowIndex, colIndex)) {
-      if (gameFinish === false) {
-        socket.emit("client-send-location-XO", {
-          rowIndex,
-          colIndex,
-          xFlag,
-          idRoomNumber: idRoomNumber - 1,
-        })
-        findPlayerWin()
-        setWait(true)
-      }
+      socket.emit("client-send-location-XO", {
+        rowIndex,
+        colIndex,
+        xFlag,
+        idRoomNumber: idRoomNumber - 1,
+      })
+      findPlayerWin()
+      setWait(true)
     }
   }
-
+  console.log(stepPlay)
   socket.on("server-send-data-location-all", async (data) => {
     const { rowIndex, colIndex, xFlag: flag, idRoomNumber } = data
     const newItem = document.getElementById(`post-${rowIndex}-${colIndex}`)
-    setStepPlay([...stepPlay, `${rowIndex - colIndex}`])
+    setStepPlay([...stepPlay, `${rowIndex}-${colIndex}`])
     if (flag === true) {
       newItem.style.backgroundImage = `url(${xChess})`
 
