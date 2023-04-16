@@ -189,7 +189,7 @@ export const CaroOffline = () => {
       for (let j = 0; j < y; j++) {
         const newItem = document.getElementById(`post-${i}-${j}`)
         newItem.style.backgroundImage = "none"
-        newItem.style.backgroundColor = "#f0b060"
+        newItem.style.backgroundColor = "white"
         matrix[i][j] = null
       }
     }

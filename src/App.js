@@ -1,13 +1,16 @@
-import { useContext } from "react"
-import { useSelector } from "react-redux"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import { DataContext } from "./Context/AppContext"
-import { CaroOffline } from "./app/Gomoku/CaroOffline"
-import { Profile } from "./app/Profile/Profile"
-import { Auth } from "./components/Auth/Auth"
+import { useContext, useState } from "react"
 import { AuthenticatedRoutes } from "./components/AuthenticatedRoutes"
+import { Auth } from "./components/Auth/Auth"
 import { NotFound } from "./components/NotFound/NotFound"
+import { Toggle } from "./components/tonggle/Tonggle"
+import { DataContext } from "./Context/AppContext"
 import { Notify } from "./helper/toast"
+import { Profile } from "./app/Profile/Profile"
+import { useSelector } from "react-redux"
+import { HomeLayout } from "./layouts/HomeLayout"
+import { Relax } from "./app/Gomoku/GomakuOnline"
+import { CaroOffline } from "./app/Gomoku/CaroOffline"
 function App() {
   const { isLogin } = useContext(DataContext)
   const { isLoggedIn } = useSelector((state) => state.auth)

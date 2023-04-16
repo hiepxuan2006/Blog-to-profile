@@ -29,12 +29,6 @@ export const GomakuHome = () => {
   })
 
   console.log("dataRoom", dataRoom)
-  useEffect(() => {
-    const scrollToTop = () => {
-      window.scrollTo(0, 0)
-    }
-    scrollToTop()
-  }, [])
   return (
     <div className="HomeRoom">
       <main id="main-list-room" role="main" className="  pt-3 px-4 row my-main">
