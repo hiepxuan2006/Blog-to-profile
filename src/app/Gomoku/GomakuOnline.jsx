@@ -1,10 +1,11 @@
+import { Howl } from "howler"
 import { Fragment, useContext, useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux"
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { DataContext } from "~/Context/AppContext"
+import { confirmDialog } from "~/helper/alertConfirm"
 import { toastAlert } from "~/helper/toast"
-import { Howl, Howler } from "howler"
 
 const xChess = require("../../assets/X-chess.png")
 const oChess = require("~/assets/O-chess.png")
@@ -25,7 +26,12 @@ export const GomakuOnline = () => {
   const Sounds = new Howl({
     src: ["/sound/score.wav"],
   })
-
+  const SoundWinner = new Howl({
+    src: ["/sound/winner.wav"],
+  })
+  const SoundLoss = new Howl({
+    src: ["/sound/loss.wav"],
+  })
   const messRef = useRef(null)
   let { idRoomNumber } = useParams()
   let x = 16,
@@ -34,7 +40,7 @@ export const GomakuOnline = () => {
   let checkLine = -1
   const { socket } = useContext(DataContext)
   const { user } = useSelector((state) => state.auth)
-
+  const navigate = useNavigate()
   useEffect(() => {
     socket.emit("client-join-room", {
       idRoomNumber: idRoomNumber - 1,
@@ -65,9 +71,7 @@ export const GomakuOnline = () => {
       setIdPlayer(data.idPlayer)
     }
   })
-  useEffect(() => {
-    console.log(player)
-  }, [player])
+  useEffect(() => {}, [player])
 
   useEffect(() => {
     player.forEach((element, index) => {
@@ -88,7 +92,7 @@ export const GomakuOnline = () => {
   )
 
   socket.on("disconnect", (user) => {
-    socket.emit("user-leave-room", {
+    socket.emit("client-leave-room-game", {
       idRoomNumber: idRoomNumber - 1,
       userName: user.name,
       userId: user._id,
@@ -284,16 +288,21 @@ export const GomakuOnline = () => {
         if (xFlag) {
           socket.emit("client-send-winner", { idRoomNumber: idRoomNumber - 1 })
         }
+        if (player[0].userName === user.name) {
+          SoundWinner.play()
+        }
       }
       if (playerWin === 0) {
         if (xFlag === false) {
           socket.emit("client-send-winner", { idRoomNumber: idRoomNumber - 1 })
         }
+        if (player[1].userName === user.name) {
+          SoundLoss.play()
+        }
       }
       socket.on("server-send-client-win", (data) => {
         setWinner(data.winner.userName)
       })
-      Sounds.play()
     }
   }
 
@@ -307,7 +316,7 @@ export const GomakuOnline = () => {
       }
     }
     matrix.slice(0, x)
-
+    setWinner("")
     checkLine = -1
     setGameFinish(!gameFinish)
     setxFlag(!true)
@@ -340,9 +349,6 @@ export const GomakuOnline = () => {
 
       matrix[rowIndex][colIndex] = 0
     }
-    findPlayerWin()
-    setGameFinish(!gameFinish)
-    setWait(false)
     if (flag === true) {
       if (xFlag === false) {
         Sounds.play()
@@ -352,11 +358,16 @@ export const GomakuOnline = () => {
         Sounds.play()
       }
     }
+    findPlayerWin()
+
+    setGameFinish(!gameFinish)
+    setWait(false)
   })
 
   const handleUnReady = () => {
     socket.emit("client-reload-ready", idRoomNumber - 1)
     setReady(false)
+    SoundWinner.play()
   }
 
   const handleSendMessage = () => {
@@ -367,10 +378,7 @@ export const GomakuOnline = () => {
       userId: user._id,
       userName: user.name,
     })
-    // setMessage([
-    //   ...messages,
-    //   { message: valueChat, userId: user._id, userName: user.name },
-    // ])
+
     setValueChat("")
   }
 
@@ -380,7 +388,7 @@ export const GomakuOnline = () => {
 
   socket.on("server-send-message-game", (data) => {
     setMessage([...messages, data])
-    if (socket.id !== idPlayer) Sounds.play()
+    if (data.userId !== user._id) Sounds.play()
   })
   useEffect(() => {
     messages.current?.scrollIntoView({ behavior: "smooth" })
@@ -394,6 +402,21 @@ export const GomakuOnline = () => {
   const scroll = useRef(null)
   const scrollTop = () => {
     scroll.current.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const handleLeaveRoom = async () => {
+    const isConfirm = await confirmDialog()
+    if (isConfirm) {
+      socket.emit("client-leave-room-game", {
+        idRoomNumber: idRoomNumber - 1,
+        userName: user.name,
+        userId: user._id,
+        idPlayer,
+      })
+      navigate("/play-game/gomaku-online")
+    } else {
+      return
+    }
   }
   return (
     <div className="Relax">
@@ -421,7 +444,9 @@ export const GomakuOnline = () => {
                 Sẵn sàng
               </button>
             )}
-            <button className="btn btn-warning">Rời phòng</button>
+            <button onClick={handleLeaveRoom} className="btn btn-warning">
+              Rời phòng
+            </button>
           </div>
           <input
             onChange={(e) => setShowMobile(e.target.checked)}
