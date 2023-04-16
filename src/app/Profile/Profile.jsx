@@ -306,6 +306,42 @@ export const Profile = () => {
                     </a>
                   </span>
                 </p>
+
+                <p className="lead">
+                  <i className="fa-solid fa-trophy me-3"></i>
+                  <span>
+                    Building
+                    <a
+                      href="https://hx-cellphone.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <strong> Chat app real-time + game caro online</strong>
+                    </a>
+                    (Project-Based Learning)
+                  </span>
+                  <p className="ms-5 d-flex flex-column">
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/Blog-to-profile"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Frontend: https://github.com/hiepxuan2006/Blog-to-profile
+                    </a>
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/Api-chat-Server"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Api: https://github.com/hiepxuan2006/Api-chat-Server
+                    </a>
+                  </p>
+                </p>
+
                 <p className="lead">
                   <i className="fa-solid fa-trophy me-3"></i>
                   <span>
@@ -319,6 +355,26 @@ export const Profile = () => {
                     </a>
                     (Project-Based Learning)
                   </span>
+                  <p className="ms-5 d-flex flex-column">
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/hx-cellphone"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Api: https://github.com/hiepxuan2006/hx-cellphone
+                    </a>
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/appshop"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Frontend: https://github.com/hiepxuan2006/appshop
+                    </a>
+                  </p>
                 </p>
                 <p className="lead">
                   <i className="fa-solid fa-trophy me-3"></i>
@@ -341,6 +397,26 @@ export const Profile = () => {
                     </a>
                     (Project-Based Learning)
                   </span>
+                  <p className="ms-5 d-flex flex-column">
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/app-form"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Api: https://github.com/hiepxuan2006/app-form
+                    </a>
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/app_server"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Frontend: https://github.com/hiepxuan2006/app_server
+                    </a>
+                  </p>
                 </p>
                 <p className="lead">
                   <i className="fa-solid fa-trophy me-3"></i>
@@ -351,10 +427,21 @@ export const Profile = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <strong> front-end website</strong>
+                      <strong>flags temple</strong>
                     </a>
                     (Project-Based Learning)
                   </span>
+                  <p className="ms-5 d-flex flex-column">
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/flag__reactjs"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Source code: https://github.com/hiepxuan2006/flag__reactjs
+                    </a>
+                  </p>
                 </p>
                 <p className="lead">
                   <i className="fa-solid fa-trophy me-3"></i>
@@ -365,10 +452,22 @@ export const Profile = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <strong> front-end website</strong>
+                      <strong> temple overview movie</strong>
                     </a>
                     (Project-Based Learning)
                   </span>
+                  <p className="ms-5 d-flex flex-column">
+                    <a
+                      className="text-success"
+                      style={{ fontSize: "16px " }}
+                      href="https://github.com/hiepxuan2006/overview__movies"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Source code:
+                      https://github.com/hiepxuan2006/overview__movies
+                    </a>
+                  </p>
                 </p>
               </div>
             </div>
