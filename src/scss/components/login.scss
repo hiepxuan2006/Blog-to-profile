@@ -1,12 +1,12 @@
 .AuthHomePage {
-   
+
     font-size: 62.5%;
     position: relative;
     overflow: hidden;
     // background-image: url('../../assets/bg.png');
     background-color: #ecf0f3 !important;
-    
-   
+
+
     .section {
         position: relative;
         width: 100%;
@@ -21,9 +21,9 @@
     }
 
     .inner {
-        width: min(500 , 1200px);
+        width: min(500, 1200px);
         margin: 0 auto;
-      
+
     }
 
 
@@ -37,10 +37,10 @@
         height: 96vh;
         display: flex;
         width: 1000px;
-        margin:0 auto;
-        background-color: rgb(236, 240, 243,0.6);
-        box-shadow:  9px 9px 22px #c9cccf,
-             -9px -9px 22px #ffffff;
+        margin: 0 auto;
+        background-color: rgb(236, 240, 243, 0.6);
+        box-shadow: 9px 9px 22px #c9cccf,
+            -9px -9px 22px #ffffff;
         background-image: url('../../assets/bg1.png');
         background-repeat: no-repeat;
         background-size: contain;
@@ -134,8 +134,8 @@
             width: 160px;
             padding: 10px;
             color: #000;
-            box-shadow:  9px 9px 22px #c9cccf,
-            -9px -9px 22px #ffffff;
+            box-shadow: 9px 9px 22px #c9cccf,
+                -9px -9px 22px #ffffff;
             background-color: #ecf0f3;
             border-radius: 6px;
             font-size: 1.6rem;
@@ -176,8 +176,8 @@
         height: 100%;
         position: absolute;
         border-radius: 10px;
-        box-shadow:  7px 7px 14px #c4c7ca,
-             -7px -7px 14px #ffffff;
+        box-shadow: 7px 7px 14px #c4c7ca,
+            -7px -7px 14px #ffffff;
         left: 0;
         top: 0;
         transform-style: preserve-3d;
@@ -269,7 +269,7 @@
     }
 
     .form-style {
-        padding:6px 10px;
+        padding: 6px 10px;
         height: 48px;
         width: 100%;
         outline: none;
@@ -293,35 +293,40 @@
     .link {
         color: var(--primary-color);
     }
-    .is-invalid{
+
+    .is-invalid {
         cursor: pointer;
     }
 
-    .avatar{
+    .avatar {
         height: 80px;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-        img{
+
+        img {
             height: 100%;
             width: 80px;
             object-fit: cover;
             border-radius: 50%;
         }
-        label{
+
+        label {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             bottom: -15px;
             color: var(--primary-color);
-            i{
+
+            i {
                 font-size: 25px;
             }
 
         }
     }
+
     .form-group {
         input {
             position: relative;
@@ -426,58 +431,75 @@
 // //////mobile
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .section{
-        .inner{
+    .section {
+        .inner {
             width: 100vw;
         }
-        .wrap-container{
+
+        .wrap-container {
             padding: 0;
             width: 95%;
             background-size: 70%;
         }
-        .wrap:first-child{
+
+        .wrap:first-child {
             display: none;
         }
-        .wrap{
+
+        .wrap {
             padding: 10px;
         }
+
         .card-3d-wrap {
             width: 100vw;
         }
-        .form-style{
+
+        .form-style {
             height: 40px;
         }
-        label{
+
+        label {
             font-size: 12px;
         }
     }
-    }
+}
+
 @media only screen and (min-device-width : 700px) and (max-device-width : 1024px) {
-    .AuthHomePage{
+
+    
+}
+
+@media only screen and (min-device-width : 700px) and (max-device-width : 1024px) {
+    .AuthHomePage {
         background-image: url('../../assets/bg2.png') !important;
         background-repeat: no-repeat;
         background-position: top right;
         background-size: 50%;
-        .inner{
+
+        .inner {
             width: 100vw;
         }
-        .wrap-container{
+
+        .wrap-container {
             padding: 0;
             width: 95%;
             flex-direction: column;
             position: relative;
-           background-size: 90%;
+            background-size: 90%;
         }
-        .wrap:first-child{
+
+        .wrap:first-child {
             display: none;
         }
-        .wrap{
+
+        .wrap {
             padding: 10px;
         }
+
         .card-3d-wrap {
             width: 500px;
-        height: 600px;
+            height: 600px;
         }
 
     }
-        }
+}

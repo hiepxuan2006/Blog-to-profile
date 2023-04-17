@@ -6,7 +6,7 @@ export const MessageHome = () => {
   const { user } = useSelector((state) => state.auth)
   return (
     <div className="MessageHome">
-      <Message>
+      <Message page={"home-mess"}>
         <div className="d-flex h-100 flex-direction-column align-items-center justify-content-center">
           <div className="Content">
             <div className="image-robot">

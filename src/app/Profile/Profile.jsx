@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useLocation } from "react-router"
 import { Link } from "react-scroll"
+import { DocTitle } from "~/helper/DocTitle"
 const avatar = require("~/assets/images/avatar/hx.jpg")
 export const Profile = () => {
   const [hideOn, setHideOn] = useState(false)
@@ -28,6 +29,7 @@ export const Profile = () => {
   }, [popUp])
   return (
     <>
+      <DocTitle title="My cv" />
       <div className="Profile">
         {popUp === 1 && (
           <div className={`HelloToast`}>

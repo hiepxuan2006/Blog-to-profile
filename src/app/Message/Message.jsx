@@ -10,7 +10,7 @@ import { getAccessToken } from "~/services/AuthService"
 import { searchAccount } from "~/services/api/accountService"
 import { getAccounts } from "~/slices/accountSlice"
 const avatar = require("~/assets/social1.png")
-export const Message = ({ children }) => {
+export const Message = ({ children, page }) => {
   const [onlineUsers, setOnlineUsers] = useState([])
   const { user } = useSelector((state) => state.auth)
   const { socket, windowWidth, theme } = useContext(DataContext)
@@ -87,7 +87,11 @@ export const Message = ({ children }) => {
       <div className="row m-0">
         <nav
           className={`col  MessageNav  ${
-            windowWidth > 480 && windowWidth < 768 ? "col-2" : "col-4"
+            windowWidth < 768 && page === "box-mess"
+              ? "d-none"
+              : windowWidth < 768 && page === "home-mess"
+              ? "col-12"
+              : "col-5"
           }`}
         >
           <div className="MyAccount">
@@ -150,11 +154,7 @@ export const Message = ({ children }) => {
                         )}
                         <img src={account.avatar || avatar} alt="" />
                       </div>
-                      <div
-                        className={`Info ${
-                          windowWidth > 480 && windowWidth < 768 ? "d-none" : ""
-                        }`}
-                      >
+                      <div className={`Info`}>
                         <p>{account.name}</p>
                         {checkOnlineStatus(account) ? (
                           <span>Đang hoạt động</span>
@@ -168,7 +168,17 @@ export const Message = ({ children }) => {
               })}
           </ul>
         </nav>
-        <div className="col col-8 p-0 message-home__content">{children}</div>
+        <div
+          className={`col p-0 message-home__content  ${
+            windowWidth < 768 && page === "box-mess"
+              ? "col-12"
+              : windowWidth < 768 && page === "home-mess"
+              ? "d-none"
+              : ""
+          }`}
+        >
+          {children}
+        </div>
       </div>
     </div>
   )

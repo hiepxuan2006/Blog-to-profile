@@ -27,7 +27,7 @@ export const BoxMessage = () => {
   const [typing, setTyping] = useState(false)
   const [loading, setLoading] = useState(false)
   const Sounds = new Howl({
-    src: ["/sound/score.wav"],
+    src: ["/sound/mess.mp3"],
   })
 
   const handleChange = (newMessage) => {
@@ -159,7 +159,7 @@ export const BoxMessage = () => {
 
   return (
     <div className="BoxMessage">
-      <Message>
+      <Message page={"box-mess"}>
         <div className="BoxMessage">
           <div className="Heading">
             <Link

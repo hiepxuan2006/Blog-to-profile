@@ -548,7 +548,9 @@ export const GomakuOnline = () => {
                 Sẵn sàng
               </button>
             )}
-            <button className="btn btn-warning">Rời phòng</button>
+            <button onClick={handleLeaveRoom} className="btn btn-warning">
+              Rời phòng
+            </button>
           </div>
           <div className="hidden-room-mobile">
             {!isViewer && (
