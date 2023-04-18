@@ -132,7 +132,7 @@ export const GomakuOnline = () => {
 
   const checkItemClicked = (i, j) => {
     if (
-      !stepPlay.includes(`${i - j}`) &&
+      !stepPlay.includes(`${i + "-" + j}`) &&
       gameFinish === false &&
       wait === false &&
       playing === true

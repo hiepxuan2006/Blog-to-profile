@@ -151,6 +151,20 @@
 
         }
     }
+    .quantity-group{
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 20px;
+        width: 20px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 600;
+    }
 
     .Online {
         content: ' ';
@@ -166,6 +180,7 @@
     }
 
     .Info {
+        flex:1;
         p {
             font-weight: 400;
             font-size: 18px;
@@ -175,7 +190,20 @@
             font-size: 14px;
         }
     }
-
+    .last-message{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span{
+            color: #909090;
+        }
+        
+    }
+.last_time_message{
+    p{
+        font-size: 14px;
+    }
+}
     .Content {
 
         display: flex;
@@ -218,6 +246,7 @@
             border-radius: 4px;
         }
     }
+    
 
     // /////////// box
     .BoxMessage {
@@ -299,6 +328,12 @@
             .item-message {
                 display: flex;
                 gap: 5px;
+                position: relative;
+            }
+            .loading-mess{
+                right: 0;bottom: 0;
+                height: 4px;
+                width: 4px;
             }
 
             .avatar-item__message {
@@ -315,7 +350,10 @@
                     object-fit: cover;
                 }
             }
-
+            .day-mess{
+                width: 100%;
+                text-align: center;
+            }
             .message {
                 padding: 10px;
                 border: 1px solid #ccc;
@@ -325,12 +363,13 @@
                 flex-direction: column;
                 gap: 0.5rem;
                 line-height: 16px;
+                min-width: 100px;
+
             }
 
             .message>span:nth-child(2) {
                 font-size: 0.7rem;
-                align-self: end;
-            }
+                }
 
             .own {
                 align-self: flex-end;
@@ -354,14 +393,12 @@
         .typing {
             height: 40px;
             width: 100%;
-            margin-bottom: 20px;
             overflow: hidden;
             display: flex;
             gap: 6px;
-            padding: 0 20px;
             margin-top: 20px;
-            margin-bottom: 20px;
-            // justify-content: flex-end;
+            padding-right: 20px;
+            justify-content: flex-end;
 
         }
 
@@ -445,6 +482,13 @@
     }
 
 }
+.modal-add-group{
+    height: 96vh;
+    .modal-content{
+        height: 100%;
+    }
+}
+
 // //////
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 .Box-content{

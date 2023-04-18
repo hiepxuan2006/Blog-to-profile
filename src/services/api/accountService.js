@@ -49,6 +49,23 @@ export const searchAccount = (data) => {
     data,
   })
 }
+
+export const getChatRooms = (data) => {
+  return api.makeAuthRequest({
+    url: "/get-chat-rooms",
+    method: "post",
+    data,
+  })
+}
+
+export const getRoom = (data) => {
+  return api.makeAuthRequest({
+    url: "/get-room",
+    method: "post",
+    data,
+  })
+}
+
 // /////
 
 const apiUpload = createAPIServices({ baseUrl, timeout: 1000000000000 })

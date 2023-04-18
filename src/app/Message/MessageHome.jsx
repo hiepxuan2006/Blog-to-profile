@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Message } from "./Message"
 import { useSelector } from "react-redux"
+import { DataContext } from "~/Context/AppContext"
 const robot = require("~/assets/robot.gif")
 export const MessageHome = () => {
+  const { setCurrentRoom } = useContext(DataContext)
   const { user } = useSelector((state) => state.auth)
+  // setCurrentRoom("")
   return (
     <div className="MessageHome">
       <Message page={"home-mess"}>

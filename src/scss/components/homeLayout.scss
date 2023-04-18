@@ -240,6 +240,11 @@
             left: 30px;
         }
     }
+    .logout{
+        font-weight: 600;
+        align-items: center;
+       
+    }
 
     .home-content {
         height: 100vh;
@@ -281,7 +286,7 @@
             z-index: 1001;
             overflow: hidden;
             position: fixed;
-
+            display: flex;
             &::-webkit-scrollbar {
                 display: none !important;
             }
@@ -416,6 +421,15 @@
                 height: 100%;
             }
 
+        }
+
+    }
+    .logout{
+        padding: 18px;
+        width: 70px;
+        svg{
+            height: 32px;
+            width: 32px;
         }
     }
 

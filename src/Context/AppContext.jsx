@@ -17,7 +17,7 @@ export const AppContext = ({ children }) => {
   const { user, loading } = useSelector((state) => state.auth)
   const [onLine, setOnline] = useState([])
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
+  const [currenRoom, setCurrentRoom] = useState("")
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
@@ -41,7 +41,6 @@ export const AppContext = ({ children }) => {
 
     // }, 0)
   }, [])
-  console.log("ds_online", onLine)
   const value = {
     socket,
     theme,
@@ -52,6 +51,8 @@ export const AppContext = ({ children }) => {
     setIsLogin,
     loading,
     windowWidth,
+    currenRoom,
+    setCurrentRoom,
   }
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>
 }

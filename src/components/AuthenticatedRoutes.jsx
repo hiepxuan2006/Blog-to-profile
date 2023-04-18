@@ -9,6 +9,7 @@ import { GomakuHome, HomeRoom } from "~/app/Gomoku/GomakuHome"
 import { GomakuOnline, Relax } from "~/app/Gomoku/GomakuOnline"
 import { HomeLayout } from "~/layouts/HomeLayout"
 import { Game } from "~/app/Game/Game"
+import { ChatMessage } from "~/app/Message/ChatMessage"
 
 const PrivateRoute = ({ isAuthenticated, isLoggedIn }) => {
   return <>{isLoggedIn ? <Outlet /> : <Navigate to="/auth" />}</>
@@ -95,7 +96,7 @@ export const AuthenticatedRoutes = ({ isAuthenticated, isLoggedIn }) => {
           path="/message/direct/:account"
           element={
             <HomeLayout>
-              <BoxMessage />
+              <ChatMessage />
             </HomeLayout>
           }
           exact

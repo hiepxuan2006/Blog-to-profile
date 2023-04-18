@@ -19,3 +19,19 @@ export const sendMessage = (data) => {
     data,
   })
 }
+
+export const getMessChat = (data) => {
+  return api.makeRequest({
+    url: "/message/get-message-room",
+    method: "post",
+    data,
+  })
+}
+
+export const createNewChat = (data) => {
+  return api.makeRequest({
+    url: "/message/new-chat",
+    method: "post",
+    data,
+  })
+}
