@@ -48,6 +48,11 @@ export const ChatMessage = () => {
   }, [account])
   useEffect(() => {
     socket.emit("user-join-room", account, currenRoom)
+    socket
+      .off("server-send-new-message")
+      .on("server-send-new-message", (payload) => {
+        setMessages(payload)
+      })
     setCurrentRoom(account)
   }, [account])
 
@@ -108,11 +113,7 @@ export const ChatMessage = () => {
       isTyping: false,
     })
     socket.emit("client-send-new-message", { roomId: account, message })
-    socket
-      .off("server-send-new-message")
-      .on("server-send-new-message", (payload) => {
-        setMessages(payload)
-      })
+
     setLoading(false)
     setNewMessage("")
   }
