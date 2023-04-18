@@ -208,13 +208,12 @@ export const HomeLayout = ({ children }) => {
                   Xem thêm
                 </p>
               )} */}
-              <div className="switch-theme d-flex justify-content-between mb-3 ItemNav">
-                <Toggle />
-                <div className="icon-theme">
+              <li className="switch-theme d-flex ItemNav">
+                {/* <div className="icon-theme">
                   {theme === "darkTheme" && <i class="fa-regular fa-moon"></i>}
                   {theme === "lightTheme" && <i class="fa-regular fa-sun"></i>}
-                </div>
-              </div>
+                </div> */}
+              </li>
             </ul>
             <div onClick={handleLogout} className="d-flex gap-3 logout ItemNav">
               <svg

@@ -10,6 +10,8 @@ import { getRoom } from "~/services/api/accountService"
 import { Message } from "./Message"
 
 const avatar = require("~/assets/social1.png")
+const messageNull = require("~/assets/gif.gif")
+
 export const ChatMessage = () => {
   const scroll = useRef()
   const scrollTyping = useRef(null)
@@ -192,7 +194,9 @@ export const ChatMessage = () => {
           <div className="Box-content">
             <div className="BoxBody">
               {messages && messages.length === 0 ? (
-                <p>Cùng nhau trò chuyện nào!</p>
+                <div className="body-null">
+                  <img src={messageNull} alt="" />
+                </div>
               ) : (
                 messages &&
                 messages.length &&

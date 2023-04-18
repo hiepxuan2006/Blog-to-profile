@@ -122,7 +122,8 @@
         align-self: flex-end;
         position: relative;
         display: flex;
-        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         gap: 10px;
         li{
             padding: 10px 0;
@@ -203,6 +204,22 @@
         }
     }
 
+    .switch-theme {
+        align-self: flex-start;
+        bottom: 20px;
+        height: 40px;
+        width: 100px;
+        left: 20px;
+    transform: rotate(90deg);
+
+
+    }
+    .icon-theme{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: none;
+    }
     .custom-theme {
         position: absolute;
         bottom: 100%;
@@ -225,14 +242,14 @@
 
     .Toggle {
         label {
-            height: 14px;
-            width: 50px;
+            height: 30px;
+            width: 70px;
             border: 1px solid #ccc;
         }
 
         .label::before {
-            height: 15px;
-            width: 15px;
+            height: 24px;
+            width: 24px;
             left: 5px;
         }
 

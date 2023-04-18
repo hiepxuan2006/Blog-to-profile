@@ -216,7 +216,7 @@ export const Message = ({ children, page }) => {
               })} */}
             {chatRooms.length &&
               chatRooms.map((chatRoom, key) => {
-                console.log(chatRoom)
+                console.log(!!chatRoom.last_message)
                 if (chatRoom.members.length === 2) {
                   const receiver = chatRoom.members.filter(
                     (item) => item._id !== user._id
@@ -234,28 +234,28 @@ export const Message = ({ children, page }) => {
                         <div className={`Info`}>
                           <p>{receiver.name}</p>
                           <div className="last-message">
-                            {chatRoom.last_member &&
+                            {!!chatRoom.last_message &&
+                            chatRoom.last_member &&
                             chatRoom.last_member._id === user._id ? (
                               "Bạn:"
                             ) : (
                               <span>
-                                {chatRoom.last_member &&
+                                {!!chatRoom.last_message &&
+                                  chatRoom.last_member &&
                                   chatRoom.last_member.name}
                                 :
                               </span>
                             )}
                             <span>
-                              {chatRoom.last_message &&
+                              {!!chatRoom.last_message &&
                                 chatRoom.last_message.content}
                             </span>
                           </div>
                         </div>
                         <div className="last_time_message">
                           <p>
-                            {formatTime(
-                              chatRoom.last_message &&
-                                chatRoom.last_message.createdAt
-                            )}
+                            {!!chatRoom.last_message &&
+                              formatTime(chatRoom.last_message.createdAt)}
                           </p>
                         </div>
                       </NavLink>
@@ -277,28 +277,27 @@ export const Message = ({ children, page }) => {
                         <div className={`Info`}>
                           <p>{chatRoom.name}</p>
                           <div className="last-message">
-                            {chatRoom.last_message &&
+                            {!!chatRoom.last_message &&
                             chatRoom.last_member._id === user._id ? (
                               "Bạn:"
                             ) : (
                               <span>
-                                {chatRoom.last_member &&
+                                {!!chatRoom.last_message &&
+                                  chatRoom.last_member &&
                                   chatRoom.last_member.name}
                                 :
                               </span>
                             )}
                             <span>
-                              {chatRoom.last_message &&
+                              {!!chatRoom.last_message &&
                                 chatRoom.last_message.content}
                             </span>
                           </div>
                         </div>
                         <div className="last_time_message">
                           <p>
-                            {formatTime(
-                              chatRoom.last_message &&
-                                chatRoom.last_message.createdAt
-                            )}
+                            {!!chatRoom.last_message &&
+                              formatTime(chatRoom.last_message.createdAt)}
                           </p>
                         </div>
                       </NavLink>

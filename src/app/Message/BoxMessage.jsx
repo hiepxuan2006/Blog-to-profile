@@ -12,6 +12,7 @@ import { Loading } from "~/components/loading/Loading"
 import { Spinner } from "reactstrap"
 import { Howl } from "howler"
 const avatar = require("~/assets/social1.png")
+const messageNull = require("~/assets/giphy.gif")
 export const BoxMessage = () => {
   const [newMessage, setNewMessage] = useState("")
   const [messages, setMessages] = useState("")
@@ -191,7 +192,9 @@ export const BoxMessage = () => {
             {loading && <Loading />}
             <div className="BoxBody">
               {messages && messages.length === 0 ? (
-                <p>Cùng nhau trò chuyện nào!</p>
+                <div>
+                  <img src={avatar} alt="" />
+                </div>
               ) : (
                 messages &&
                 messages.length &&
