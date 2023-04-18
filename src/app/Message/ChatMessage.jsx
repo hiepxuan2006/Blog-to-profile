@@ -49,7 +49,7 @@ export const ChatMessage = () => {
   useEffect(() => {
     socket.emit("user-join-room", account, currenRoom)
     setCurrentRoom(account)
-  }, [])
+  }, [account])
 
   const handleFocus = () => {
     setIsFocused(true)
