@@ -5,6 +5,7 @@ import { io } from "socket.io-client"
 import { URL } from "~/helper/url"
 import { async } from "react-input-emoji"
 export const socket = io(URL, {
+  autoConnect: false,
   reconnection: true,
   reconnectionDelay: 1000,
   reconnectionDelayMax: 5000,

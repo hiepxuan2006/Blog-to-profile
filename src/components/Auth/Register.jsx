@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useState } from "react"
-import { DocTitle } from "../../helper/DocTitle"
 import { FastField, Form, Formik } from "formik"
-import { InputField } from "../form/InputField"
-import * as Yup from "yup"
-import { register, uploadImage } from "~/services/api/accountService"
-import { toastAlert } from "~/helper/toast"
+import { useContext, useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
-import { LoadingProcess } from "~/helper/LoadingProcess"
+import * as Yup from "yup"
+import { toastAlert } from "~/helper/toast"
+import { register, uploadImage } from "~/services/api/accountService"
+import { InputField } from "../form/InputField"
 import { Loading } from "../loading/Loading"
+import { DataContext } from "~/Context/AppContext"
 const img = require("~/assets/social1.png")
 export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
   const [loading, setLoading] = useState(false)
+  const { socket } = useContext(DataContext)
   const [image, setImage] = useState("")
   const [imagePreview, setImagePreview] = useState(null)
   const [initialValues, setInitialValues] = useState({
@@ -69,10 +69,14 @@ export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
     formData.append("folder", "media")
     setLoading(true)
     try {
-      const { success: ready, data: url } = await uploadImage(formData)
+      const {
+        success: ready,
+        data: url,
+        message: mess,
+      } = await uploadImage(formData)
       if (!ready) {
         setLoading(false)
-        toastAlert("error", "Tải ảnh lên bị lỗi! Thử lại!")
+        toastAlert("error", mess)
         return
       }
       const { secure_url } = url
@@ -94,6 +98,9 @@ export const Register = ({ btnSwitch = false, setBtnSwitch }) => {
       toastAlert("error", error.message || error.toString())
     }
   }
+  socket.on("login", (data) => {
+    console.log(data)
+  })
   return (
     <div className="card-back">
       {loading && <Loading />}

@@ -20,18 +20,21 @@ export const AuthenticatedRoutes = ({ isAuthenticated, isLoggedIn }) => {
   const { loading, setOnline, socket } = useContext(DataContext)
   const { user } = useSelector((state) => state.auth)
 
-  socket.on("get-users", (users) => {
-    setOnline(users)
-  })
   useEffect(() => {
     if (isLoggedIn) {
       socket.emit("new-user-add", user._id)
     }
   }, [user._id])
 
-  socket.on("disconnect", (user) => {
-    socket.emit("user-off", user._id)
-  })
+  if (isLoggedIn) {
+    socket.connect()
+    socket.on("get-users", (users) => {
+      setOnline(users)
+    })
+    socket.on("disconnect", (user) => {
+      socket.emit("user-off", user._id)
+    })
+  }
   // if (loading) return <Loading />
 
   return (

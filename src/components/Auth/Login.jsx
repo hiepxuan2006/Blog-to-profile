@@ -17,8 +17,8 @@ export const Login = ({ btnSwitch = false }) => {
   const { isLoggedIn } = useSelector((state) => state.auth)
   const formikRef = useRef(null)
   const [initialValues, setInitialValues] = useState({
-    email: "",
-    password: "",
+    email: "dev@gmail.com",
+    password: "Hiepxuan2006@",
   })
   const navigate = useNavigate()
 
