@@ -18,7 +18,7 @@ export const Login = ({ btnSwitch = false }) => {
   const formikRef = useRef(null)
   const [initialValues, setInitialValues] = useState({
     email: "dev@gmail.com",
-    password: "Hiepxuan2006@",
+    password: "Hiepxuan98@",
   })
   const navigate = useNavigate()
 
